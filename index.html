@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Velocity Server Status</title>
+</head>
+<body>
+  <h1>Velocity Server Status</h1>
+  <p id="status">Loading...</p>
+  <script>
+    fetch('https://api.mcsrvstat.us/2/YOUR_SERVER_IP')
+      .then(response => response.json())
+      .then(data => {
+        if (data.online) {
+          document.getElementById('status').innerHTML =
+            `✅ Online<br>Players: ${data.players.online}/${data.players.max}`;
+        } else {
+          document.getElementById('status').innerHTML = '❌ Server is offline.';
+        }
+      })
+      .catch(() => {
+        document.getElementById('status').innerHTML = 'Error fetching server status.';
+      });
+  </script>
+</body>
+</html>
