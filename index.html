@@ -1,122 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BlastMC Server Status</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlastMC - Home</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #c6f1ff, #e9faff);
-      color: #00334d;
-    }
-    header {
-      background: #00bfff;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 28px;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    nav {
-      background: #00bfff;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      display: flex;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 18px;
-      padding: 30px;
-      width: 100%;
-      max-width: 600px;
-      text-align: center;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-    .status {
-      font-size: 20px;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    .online { color: #00cc66; }
-    .offline { color: #cc0033; }
-    .info {
-      font-size: 16px;
-      margin-top: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #006680;
-    }
+    :root {
+      --bg: #e9faff;
+      --text: #00334d;
+      --card-bg: rgba(255, 255, 255, 0.4);
+      --nav-bg: #00bfff;
+      --header-bg: linear-gradient(90deg, #00bfff, #66d9ff);
+    }body.dark {
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --card-bg: rgba(22, 27, 34, 0.7);
+  --nav-bg: #161b22;
+  --header-bg: linear-gradient(90deg, #10151c, #1a1f27);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background: var(--header-bg);
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+nav {
+  background: var(--nav-bg);
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.banner {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.ip-box {
+  background: var(--card-bg);
+  display: inline-block;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ip-box input {
+  font-size: 16px;
+  padding: 6px 10px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  width: 250px;
+  text-align: center;
+}
+
+.copy-btn {
+  padding: 5px 10px;
+  background: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.btns {
+  margin-top: 30px;
+}
+
+.btns a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #00bfff;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
   </style>
 </head>
 <body>
-
-  <!-- ✅ Header: your site title -->
-  <header>BlastMC Server Status</header>
-
-  <!-- ✅ Navigation Menu -->
-  <nav>
+  <header>
+    <img src="logo.png" alt="BlastMC Logo" class="logo">
+    <h1>Welcome to BlastMC</h1>
+    <p>The ultimate Minecraft experience</p>
+  </header>  <nav>
     <a href="index.html">Home</a>
     <a href="staff.html">Staff</a>
-    <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
-  </nav>
+    <a href="https://discord.gg/YOURINVITE" target="_blank">Discord</a>
+  </nav>  <img src="banner.jpg" alt="BlastMC Banner" class="banner">  <div class="container">
+    <h2>Server IP Address</h2>
+    <div class="ip-box">
+      <input type="text" id="ipText" value="play.blastmc.fun" readonly>
+      <button class="copy-btn" onclick="copyIP()">Copy</button>
+    </div><div class="btns">
+  <a href="staff.html">Meet the Staff</a>
+  <a href="https://discord.gg/YOURINVITE" target="_blank">Join Discord</a>
+</div>
 
-  <!-- ✅ Main Status Card -->
-  <div class="container">
-    <div class="card" id="statusCard">
-      <p>Checking server status...</p>
-    </div>
-  </div>
-
-  <footer>&copy; 2025 BlastMC | Made by Azhan 🎮</footer>
-
-  <script>
-    const ip = "play.blastmc.fun";
-    const bedrockPort = 19106;
-
-    async function fetchStatus() {
-      const res = await fetch(`https://api.mcsrvstat.us/2/${ip}`);
-      return await res.json();
+  </div>  <footer>&copy; 2025 BlastMC | All Rights Reserved</footer>  <script>
+    function copyIP() {
+      const copyText = document.getElementById("ipText");
+      navigator.clipboard.writeText(copyText.value);
+      alert("IP Copied: " + copyText.value);
     }
-
-    async function updateStatus() {
-      const card = document.getElementById("statusCard");
-      const data = await fetchStatus();
-
-      const online = data.online;
-      const players = online ? data.players.online : 0;
-      const max = online ? data.players.max : 0;
-
-      card.innerHTML = `
-        <h2>BlastMC Network</h2>
-        <div class="status ${online ? 'online' : 'offline'}">
-          ${online ? '🟢 Online' : '🔴 Offline'}
-        </div>
-        ${online ? `<p class="info">Players Online: ${players}/${max}</p>` : ""}
-        <div class="info"><b>Java IP:</b> ${ip}</div>
-        <div class="info"><b>Bedrock IP:</b> ${ip}</div>
-        <div class="info"><b>Bedrock Port:</b> ${bedrockPort}</div>
-      `;
-    }
-
-    updateStatus();
-    setInterval(updateStatus, 60000);
-  </script>
-</body>
+  </script></body>
 </html>
