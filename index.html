@@ -62,7 +62,7 @@
   <script>
     const ip = "play.blastmc.fun"; // change to your real IP/domain
 
-    fetch(`https://api.mcsrvstat.us/2/${play.blastmc.fun}`)
+    fetch(`https://api.mcsrvstat.us/2/${ip}`)
       .then(res => res.json())
       .then(data => {
         let html = `<div class="server">`;
