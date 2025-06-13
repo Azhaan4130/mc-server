@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BlastMC Staff Team</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlastMC Staff</title>
   <style>
     :root {
       --bg: #e9faff;
@@ -10,14 +10,12 @@
       --card-bg: rgba(255, 255, 255, 0.4);
       --nav-bg: #00bfff;
       --header-bg: linear-gradient(90deg, #00bfff, #66d9ff);
-      --footer-color: #006680;
     }body.dark {
   --bg: #0d1117;
   --text: #e6edf3;
   --card-bg: rgba(22, 27, 34, 0.7);
   --nav-bg: #161b22;
   --header-bg: linear-gradient(90deg, #10151c, #1a1f27);
-  --footer-color: #8b949e;
 }
 
 body {
@@ -25,19 +23,14 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
-  transition: background 0.4s, color 0.4s;
+  transition: background 0.3s, color 0.3s;
 }
 
 header {
   background: var(--header-bg);
-  color: white;
+  padding: 20px;
   text-align: center;
-  padding: 30px 0;
-  font-size: 34px;
-  font-weight: 900;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 8px 16px rgba(0, 191, 255, 0.2);
+  color: white;
 }
 
 nav {
@@ -53,161 +46,111 @@ nav a {
   font-weight: bold;
 }
 
-.toggle-container {
-  text-align: right;
-  padding: 10px 20px;
-}
-
-.toggle-container button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  background: #00bfff;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.staff-container {
+.container {
+  padding: 40px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 40px 20px;
-  gap: 30px;
 }
 
-.staff-card {
+.card {
   background: var(--card-bg);
-  border-radius: 16px;
+  margin: 15px;
   padding: 20px;
-  width: 200px;
+  border-radius: 12px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.7s ease;
 }
 
-.staff-card.show {
-  opacity: 1;
-  transform: translateY(0);
+.skin {
+  width: 100px;
+  height: 200px;
+  margin: auto;
+  background-size: cover;
+  background-position: center;
+  animation: float 3s ease-in-out infinite;
 }
 
-.staff-card img {
-  width: 100%;
-  image-rendering: pixelated;
-}
-
-.name {
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-.role {
-  font-size: 14px;
-  color: var(--text);
-}
-
-.loader {
-  width: 100vw;
-  height: 100vh;
-  background: var(--bg);
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.loader div {
-  width: 50px;
-  height: 50px;
-  border: 6px solid #00bfff;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 footer {
   text-align: center;
   padding: 20px;
   font-size: 14px;
-  color: var(--footer-color);
+}
+
+.toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00bfff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
   </style>
 </head>
-<body><div class="loader" id="loader">
-  <div></div>
-</div><header>BlastMC Staff Team</header><nav>
-  <a href="index.html">Home</a>
-  <a href="staff.html" class="active">Staff</a>
-  <a href="https://discord.gg/YOUR_INVITE" target="_blank">Discord</a>
-</nav><div class="toggle-container">
-  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-</div><div class="staff-container" id="staffList">
-</div><footer>&copy; 2025 BlastMC | Made by Azhan 🎮</footer><script>
-  const staff = [
-    { name: "Azhaan_Gamerz", role: "Owner", skinURL: "" },
-    { name: "RIPxBEAST", role: "Owner", skinURL: "" },
-    { name: "EVExREXY", role: "CEO & Founder", skinURL: "https://i.imgur.com/yourImage1.png" },
-    { name: "Akhi_hero", role: "Admin", skinURL: "" },
-    { name: "Sufianishero", role: "Admin", skinURL: "" },
-    { name: "UdiyanSinha", role: "Moderator", skinURL: "" },
-    { name: "Pikachu", role: "Moderator", skinURL: "https://i.imgur.com/yourImage2.png" }
-  ];
+<body>
+  <header>
+    <h1>Meet the BlastMC Staff</h1>
+  </header>  <nav>
+    <a href="index.html">Home</a>
+    <a href="staff.html">Staff</a>
+    <a href="https://discord.gg/YOURINVITE" target="_blank">Discord</a>
+  </nav>  <div class="container">
+    <div class="card">
+      <div class="skin" style="background-image: url('https://mc-heads.net/body/Azhaan_Gamerz');"></div>
+      <h3>Azhaan_Gamerz</h3>
+      <p>Owner</p>
+    </div>
+    <div class="card">
+      <div class="skin" style="background-image: url('https://mc-heads.net/body/RIPxBEAST');"></div>
+      <h3>RIPxBEAST</h3>
+      <p>Owner</p>
+    </div>
+    <div class="card">
+      <div class="skin" style="background-image: url('https://mc-heads.net/body/EVExREXY');"></div>
+      <h3>EVExREXY</h3>
+      <p>CEO & Founder</p>
+    </div>
+    <div class="card">
+      <div class="skin" style="background-image: url('https://mc-heads.net/body/Akhi_hero');"></div>
+      <h3>Akhi_hero</h3>
+      <p>Admin</p>
+    </div>
+    <div class="card">
+      <div class="skin" style="background-image: url('https://mc-heads.net/body/Sufianishero');"></div>
+      <h3>Sufianishero</h3>
+      <p>Admin</p>
+    </div>
+    <div class="card">
+      <div class="skin" style="background-image: url('https://mc-heads.net/body/UdiyanSinha');"></div>
+      <h3>UdiyanSinha</h3>
+      <p>Moderator</p>
+    </div>
+    <div class="card">
+      <div class="skin" style="background-image: url('https://mc-heads.net/body/Pikachu');"></div>
+      <h3>Pikachu</h3>
+      <p>Moderator</p>
+    </div>
+  </div>  <footer>&copy; 2025 BlastMC | All Rights Reserved</footer><button class="toggle-btn" onclick="toggleDarkMode()" id="modeBtn">Toggle Dark Mode</button>
 
-  const skinAPI = (member) =>
-    member.skinURL ? member.skinURL : `https://visage.surgeplay.com/full/256/${member.name}`;
-
-  const container = document.getElementById("staffList");
-
-  staff.forEach(member => {
-    const div = document.createElement("div");
-    div.className = "staff-card";
-    div.innerHTML = `
-      <img src="${skinAPI(member)}" alt="${member.name}'s Skin">
-      <div class="name">${member.name}</div>
-      <div class="role">${member.role}</div>
-    `;
-    container.appendChild(div);
-  });
-
-  function showCardsOnScroll() {
-    const cards = document.querySelectorAll(".staff-card");
-    cards.forEach(card => {
-      const top = card.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
-        card.classList.add("show");
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+      const btn = document.getElementById('modeBtn');
+      if (document.body.classList.contains('dark')) {
+        btn.textContent = 'Toggle Light Mode';
+      } else {
+        btn.textContent = 'Toggle Dark Mode';
       }
-    });
-  }
-
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      document.getElementById("loader").style.display = "none";
-      if (localStorage.getItem("darkMode") === "true") {
-        document.body.classList.add("dark");
-      }
-      showCardsOnScroll();
-    }, 700);
-  });
-
-  window.addEventListener("scroll", showCardsOnScroll);
-
-  function toggleDarkMode() {
-    document.body.classList.toggle("dark");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
-  }
-</script></body>
+    }
+  </script></body>
 </html>
