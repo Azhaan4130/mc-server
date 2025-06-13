@@ -3,90 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <title>BlastMC Status</title>
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'VT323', monospace;
-      background: linear-gradient(to bottom, #e0f7ff, #cce7ff);
-      color: #003366;
-      padding: 30px;
-      text-align: center;
-      margin: 0;
+      margin: 0; font-family: 'Inter', sans-serif;
+      background: #e6f7ff;
+      color: #00334d;
     }
-
-    h1 {
-      font-size: 40px;
-      margin-bottom: 30px;
-      color: #004080;
-    }
-
-    .server {
-      background: #ffffff;
-      border: 2px solid #66ccff;
-      border-radius: 12px;
+    header {
+      background: #66ccff;
       padding: 20px;
-      margin: 20px auto;
-      max-width: 350px;
-      box-shadow: 0 8px 20px rgba(0, 153, 255, 0.2);
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
-    .online {
-      color: #009900;
-      font-weight: bold;
+    header h1 { margin: 0; font-size: 24px; color: #fff; }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
-
-    .offline {
-      color: #cc0000;
-      font-weight: bold;
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-
-    a {
-      color: #0055aa;
-      text-decoration: none;
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #005580;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .status {
+      font-size: 16px;
+      font-weight: 600;
     }
-
+    .online { color: #009933; }
+    .offline { color: #cc0000; }
     footer {
-      margin-top: 40px;
+      text-align: center;
+      padding: 10px;
       font-size: 14px;
+      color: #005580;
     }
   </style>
 </head>
 <body>
-  <h1>💠 BlastMC Status</h1>
-  <div id="status">Loading server info...</div>
+  <header>
+    <h1>BlastMC 🔹 Server Status</h1>
+  </header>
+  <div class="container" id="statusArea">
+    <p>Loading status...</p>
+  </div>
+  <footer>
+    <a href="https://github.com/Azhaan4130">Made by Azhan</a>
+  </footer>
 
   <script>
-    const ip = "play.blastmc.fun"; // change to your real IP/domain
+    const services = [
+      { name: "Java Edition", ip: "play.blastmc.fun:19106" },
+      { name: "Bedrock Edition", ip: "play.blastmc.fun:19106" },
+    ];
 
-    fetch(`https://api.mcsrvstat.us/2/${ip}`)
-      .then(res => res.json())
-      .then(data => {
-        let html = `<div class="server">`;
+    async function fetchStatus(ip) {
+      try {
+        const res = await fetch(`https://api.mcsrvstat.us/2/${ip}`);
+        return await res.json();
+      } catch {
+        return null;
+      }
+    }
 
-        if (data.online) {
-          html += `<strong>${ip}</strong><br>
-            <span class="online">🟢 Online</span><br>
-            Players: ${data.players.online}/${data.players.max}<br>`;
-        } else {
-          html += `<strong>${ip}</strong><br>
-            <span class="offline">🔴 Offline</span>`;
-        }
+    async function updateStatus() {
+      const container = document.getElementById("statusArea");
+      container.innerHTML = "";
 
-        html += `</div>`;
-        document.getElementById("status").innerHTML = html;
-      })
-      .catch(() => {
-        document.getElementById("status").innerHTML =
-          "<div class='server'><span class='offline'>⚠️ Could not fetch server status</span></div>";
-      });
+      for (const svc of services) {
+        const data = await fetchStatus(svc.ip);
+        const online = data && data.online;
+        const players = online ? data.players.online : 0;
+        const max = online ? data.players.max : 0;
+
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h2>${svc.name}</h2>
+          <p class="status ${online ? "online" : "offline"}">
+            ${online ? "🟢 Online" : "🔴 Offline"}
+          </p>
+          ${online ? `<p>Players: ${players} / ${max}</p>` : ""}
+        `;
+        container.appendChild(card);
+      }
+    }
+
+    updateStatus();
+    setInterval(updateStatus, 60 * 1000); // Refresh every 60 sec
   </script>
-
-  <footer>
-    Made by <a href="https://github.com/Azhaan4130" target="_blank">Azhan</a> 💙
-  </footer>
 </body>
 </html>
