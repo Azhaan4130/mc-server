@@ -1,25 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Velocity Server Status</title>
+  <meta charset="UTF-8">
+  <title>BlastMC Status</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'VT323', monospace;
+      background: linear-gradient(to bottom, #e0f7ff, #cce7ff);
+      color: #003366;
+      padding: 30px;
+      text-align: center;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      color: #004080;
+    }
+
+    .server {
+      background: #ffffff;
+      border: 2px solid #66ccff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 350px;
+      box-shadow: 0 8px 20px rgba(0, 153, 255, 0.2);
+    }
+
+    .online {
+      color: #009900;
+      font-weight: bold;
+    }
+
+    .offline {
+      color: #cc0000;
+      font-weight: bold;
+    }
+
+    a {
+      color: #0055aa;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Velocity Server Status</h1>
-  <p id="status">Loading...</p>
+  <h1>💠 BlastMC Status</h1>
+  <div id="status">Loading server info...</div>
+
   <script>
-    fetch('https://api.mcsrvstat.us/2/YOUR_SERVER_IP')
-      .then(response => response.json())
+    const ip = "play.blastmc.fun"; // change to your real IP/domain
+
+    fetch(`https://api.mcsrvstat.us/2/${play.blastmc.fun}`)
+      .then(res => res.json())
       .then(data => {
+        let html = `<div class="server">`;
+
         if (data.online) {
-          document.getElementById('status').innerHTML =
-            `✅ Online<br>Players: ${data.players.online}/${data.players.max}`;
+          html += `<strong>${ip}</strong><br>
+            <span class="online">🟢 Online</span><br>
+            Players: ${data.players.online}/${data.players.max}<br>`;
         } else {
-          document.getElementById('status').innerHTML = '❌ Server is offline.';
+          html += `<strong>${ip}</strong><br>
+            <span class="offline">🔴 Offline</span>`;
         }
+
+        html += `</div>`;
+        document.getElementById("status").innerHTML = html;
       })
       .catch(() => {
-        document.getElementById('status').innerHTML = 'Error fetching server status.';
+        document.getElementById("status").innerHTML =
+          "<div class='server'><span class='offline'>⚠️ Could not fetch server status</span></div>";
       });
   </script>
+
+  <footer>
+    Made by <a href="https://github.com/Azhaan4130" target="_blank">Azhan</a> 💙
+  </footer>
 </body>
 </html>
