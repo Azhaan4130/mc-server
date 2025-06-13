@@ -1,171 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>BlastMC Staff Team</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #c6f1ff, #e9faff);
-      color: #00334d;
-      overflow-x: hidden;
-    }
+    :root {
+      --bg: #e9faff;
+      --text: #00334d;
+      --card-bg: rgba(255, 255, 255, 0.4);
+      --nav-bg: #00bfff;
+      --header-bg: linear-gradient(90deg, #00bfff, #66d9ff);
+      --footer-color: #006680;
+    }body.dark {
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --card-bg: rgba(22, 27, 34, 0.7);
+  --nav-bg: #161b22;
+  --header-bg: linear-gradient(90deg, #10151c, #1a1f27);
+  --footer-color: #8b949e;
+}
 
-    header {
-      background: linear-gradient(90deg, #00bfff, #66d9ff);
-      color: white;
-      text-align: center;
-      padding: 30px 0;
-      font-size: 34px;
-      font-weight: 900;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-      box-shadow: 0 8px 16px rgba(0, 191, 255, 0.2);
-    }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+}
 
-    nav {
-      background: #00bfff;
-      padding: 10px;
-      text-align: center;
-    }
+header {
+  background: var(--header-bg);
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 34px;
+  font-weight: 900;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 191, 255, 0.2);
+}
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+nav {
+  background: var(--nav-bg);
+  padding: 10px;
+  text-align: center;
+}
 
-    .staff-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 40px 20px;
-      gap: 30px;
-    }
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .staff-card {
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 16px;
-      padding: 20px;
-      width: 200px;
-      text-align: center;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.7s ease;
-    }
+.toggle-container {
+  text-align: right;
+  padding: 10px 20px;
+}
 
-    .staff-card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.toggle-container button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #00bfff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .staff-card img {
-      width: 100%;
-      image-rendering: pixelated;
-    }
+.staff-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 30px;
+}
 
-    .name {
-      font-weight: bold;
-      font-size: 18px;
-      margin-top: 10px;
-    }
+.staff-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
+}
 
-    .role {
-      font-size: 14px;
-      color: #005577;
-    }
+.staff-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .loader {
-      width: 100vw;
-      height: 100vh;
-      background: #c6f1ff;
-      position: fixed;
-      top: 0;
-      left: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
+.staff-card img {
+  width: 100%;
+  image-rendering: pixelated;
+}
 
-    .loader div {
-      width: 50px;
-      height: 50px;
-      border: 6px solid #00bfff;
-      border-top-color: transparent;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
+.name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+.role {
+  font-size: 14px;
+  color: var(--text);
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #006680;
-    }
+.loader {
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader div {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #00bfff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: var(--footer-color);
+}
+
   </style>
 </head>
-<body>
-
-<!-- Loading animation -->
-<div class="loader" id="loader">
+<body><div class="loader" id="loader">
   <div></div>
-</div>
-
-<header>BlastMC Staff Team</header>
-
-<nav>
+</div><header>BlastMC Staff Team</header><nav>
   <a href="index.html">Home</a>
   <a href="staff.html" class="active">Staff</a>
   <a href="https://discord.gg/YOUR_INVITE" target="_blank">Discord</a>
-</nav>
-
-<div class="staff-container" id="staffList">
-  <!-- Staff members will be inserted here -->
-</div>
-
-<footer>&copy; 2025 BlastMC | Made by Azhan 🎮</footer>
-
-<script>
-  // Staff Data
+</nav><div class="toggle-container">
+  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+</div><div class="staff-container" id="staffList">
+</div><footer>&copy; 2025 BlastMC | Made by Azhan 🎮</footer><script>
   const staff = [
-    { name: "Azhaan_Gamerz", role: "Owner" },
-    { name: "RIPxBEAST", role: "Owner" },
-    { name: "EVExREXY", role: "CEO & Founder" },
-    { name: "Akhi_hero", role: "Admin" },
-    { name: "Sufianishero", role: "Admin" },
-    { name: "UdiyanSinha", role: "Moderator" },
-    { name: "UCHIHA", role: "Moderator" }
+    { name: "Azhaan_Gamerz", role: "Owner", skinURL: "" },
+    { name: "RIPxBEAST", role: "Owner", skinURL: "" },
+    { name: "EVExREXY", role: "CEO & Founder", skinURL: "https://i.imgur.com/yourImage1.png" },
+    { name: "Akhi_hero", role: "Admin", skinURL: "" },
+    { name: "Sufianishero", role: "Admin", skinURL: "" },
+    { name: "UdiyanSinha", role: "Moderator", skinURL: "" },
+    { name: "Pikachu", role: "Moderator", skinURL: "https://i.imgur.com/yourImage2.png" }
   ];
 
-  // Minecraft full body skin render (standing pose)
-  const skinAPI = (username) =>
-    `https://visage.surgeplay.com/full/256/${username}`;
+  const skinAPI = (member) =>
+    member.skinURL ? member.skinURL : `https://visage.surgeplay.com/full/256/${member.name}`;
 
   const container = document.getElementById("staffList");
 
-  staff.forEach((member, i) => {
+  staff.forEach(member => {
     const div = document.createElement("div");
     div.className = "staff-card";
     div.innerHTML = `
-      <img src="${skinAPI(member.name)}" alt="${member.name}'s Skin">
+      <img src="${skinAPI(member)}" alt="${member.name}'s Skin">
       <div class="name">${member.name}</div>
       <div class="role">${member.role}</div>
     `;
     container.appendChild(div);
   });
 
-  // Show scroll animation
   function showCardsOnScroll() {
     const cards = document.querySelectorAll(".staff-card");
     cards.forEach(card => {
@@ -176,16 +193,21 @@
     });
   }
 
-  // Loading spinner
   window.addEventListener("load", () => {
     setTimeout(() => {
       document.getElementById("loader").style.display = "none";
-      showCardsOnScroll(); // show cards on load
-    }, 700); // small delay for effect
+      if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark");
+      }
+      showCardsOnScroll();
+    }, 700);
   });
 
   window.addEventListener("scroll", showCardsOnScroll);
-</script>
 
-</body>
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+  }
+</script></body>
 </html>
