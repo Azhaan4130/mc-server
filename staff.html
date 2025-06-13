@@ -2,20 +2,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BlastMC Staff</title>
+  <title>BlastMC - Staff</title>
   <style>
-    :root {
-      --bg: #e9faff;
-      --text: #00334d;
-      --card-bg: rgba(255, 255, 255, 0.4);
-      --nav-bg: #00bfff;
-      --header-bg: linear-gradient(90deg, #00bfff, #66d9ff);
-    }body.dark {
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');:root {
+  --bg: #e9faff;
+  --text: #00334d;
+  --card-bg: rgba(255, 255, 255, 0.4);
+  --nav-bg: #00bfff;
+  --header-bg: linear-gradient(90deg, #00bfff, #66d9ff);
+  --shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body.dark {
   --bg: #0d1117;
   --text: #e6edf3;
   --card-bg: rgba(22, 27, 34, 0.7);
   --nav-bg: #161b22;
   --header-bg: linear-gradient(90deg, #10151c, #1a1f27);
+  --shadow: 0 4px 12px rgba(255,255,255,0.05);
 }
 
 body {
@@ -31,12 +35,14 @@ header {
   padding: 20px;
   text-align: center;
   color: white;
+  box-shadow: var(--shadow);
 }
 
 nav {
   background: var(--nav-bg);
   padding: 10px;
   text-align: center;
+  box-shadow: var(--shadow);
 }
 
 nav a {
@@ -44,37 +50,51 @@ nav a {
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .container {
   padding: 40px 20px;
-  display: flex;
-  flex-wrap: wrap;
+  text-align: center;
+}
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
   justify-content: center;
 }
 
-.card {
+.member {
   background: var(--card-bg);
-  margin: 15px;
-  padding: 20px;
   border-radius: 12px;
-  width: 220px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.member:hover {
+  transform: scale(1.05);
 }
 
 .skin {
   width: 100px;
   height: 200px;
-  margin: auto;
   background-size: cover;
+  margin: 0 auto 10px;
+  image-rendering: pixelated;
   background-position: center;
-  animation: float 3s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.role {
+  font-weight: bold;
+  font-size: 16px;
+  color: #00bfff;
+}
+
+.desc {
+  margin-top: 20px;
+  font-size: 16px;
 }
 
 footer {
@@ -93,64 +113,71 @@ footer {
   padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
+  z-index: 1000;
 }
 
   </style>
 </head>
 <body>
   <header>
-    <h1>Meet the BlastMC Staff</h1>
+    <h1>BlastMC Staff</h1>
+    <p>Meet the amazing team behind BlastMC</p>
   </header>  <nav>
     <a href="index.html">Home</a>
     <a href="staff.html">Staff</a>
-    <a href="https://discord.gg/YOURINVITE" target="_blank">Discord</a>
+    <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
   </nav>  <div class="container">
-    <div class="card">
-      <div class="skin" style="background-image: url('https://mc-heads.net/body/Azhaan_Gamerz');"></div>
-      <h3>Azhaan_Gamerz</h3>
-      <p>Owner</p>
-    </div>
-    <div class="card">
-      <div class="skin" style="background-image: url('https://mc-heads.net/body/RIPxBEAST');"></div>
-      <h3>RIPxBEAST</h3>
-      <p>Owner</p>
-    </div>
-    <div class="card">
-      <div class="skin" style="background-image: url('https://mc-heads.net/body/EVExREXY');"></div>
-      <h3>EVExREXY</h3>
-      <p>CEO & Founder</p>
-    </div>
-    <div class="card">
-      <div class="skin" style="background-image: url('https://mc-heads.net/body/Akhi_hero');"></div>
-      <h3>Akhi_hero</h3>
-      <p>Admin</p>
-    </div>
-    <div class="card">
-      <div class="skin" style="background-image: url('https://mc-heads.net/body/Sufianishero');"></div>
-      <h3>Sufianishero</h3>
-      <p>Admin</p>
-    </div>
-    <div class="card">
-      <div class="skin" style="background-image: url('https://mc-heads.net/body/UdiyanSinha');"></div>
-      <h3>UdiyanSinha</h3>
-      <p>Moderator</p>
-    </div>
-    <div class="card">
-      <div class="skin" style="background-image: url('https://mc-heads.net/body/Pikachu');"></div>
-      <h3>Pikachu</h3>
-      <p>Moderator</p>
-    </div>
-  </div>  <footer>&copy; 2025 BlastMC | All Rights Reserved</footer><button class="toggle-btn" onclick="toggleDarkMode()" id="modeBtn">Toggle Dark Mode</button>
+    <p class="desc">Each one of these dedicated team members helps keep BlastMC smooth, fair, and fun! 👑</p><div class="staff-grid">
+  <div class="member">
+    <div class="skin" style="background-image: url('https://mc-heads.net/body/Azhaan_Gamerz');"></div>
+    <div class="name">Azhaan_Gamerz</div>
+    <div class="role">Owner</div>
+  </div>
+
+  <div class="member">
+    <div class="skin" style="background-image: url('https://mc-heads.net/body/RIPxBEAST');"></div>
+    <div class="name">RIPxBEAST</div>
+    <div class="role">Owner</div>
+  </div>
+
+  <div class="member">
+    <div class="skin" style="background-image: url('https://mc-heads.net/body/EVExREXY');"></div>
+    <div class="name">EVExREXY</div>
+    <div class="role">CEO & Founder</div>
+  </div>
+
+  <div class="member">
+    <div class="skin" style="background-image: url('https://mc-heads.net/body/Akhi_hero');"></div>
+    <div class="name">Akhi_hero</div>
+    <div class="role">Admin</div>
+  </div>
+
+  <div class="member">
+    <div class="skin" style="background-image: url('https://mc-heads.net/body/Sufianishero');"></div>
+    <div class="name">Sufianishero</div>
+    <div class="role">Admin</div>
+  </div>
+
+  <div class="member">
+    <div class="skin" style="background-image: url('https://mc-heads.net/body/UdiyanSinha');"></div>
+    <div class="name">UdiyanSinha</div>
+    <div class="role">Moderator</div>
+  </div>
+
+  <div class="member">
+    <div class="skin" style="background-image: url('https://mc-heads.net/body/Pikachu');"></div>
+    <div class="name">Pikachu</div>
+    <div class="role">Moderator</div>
+  </div>
+</div>
+
+  </div>  <footer>&copy; 2025 BlastMC | Powered by the community</footer><button class="toggle-btn" onclick="toggleDarkMode()" id="modeBtn">Toggle Dark Mode</button>
 
   <script>
     function toggleDarkMode() {
-      document.body.classList.toggle('dark');
-      const btn = document.getElementById('modeBtn');
-      if (document.body.classList.contains('dark')) {
-        btn.textContent = 'Toggle Light Mode';
-      } else {
-        btn.textContent = 'Toggle Dark Mode';
-      }
+      document.body.classList.toggle("dark");
+      const btn = document.getElementById("modeBtn");
+      btn.textContent = document.body.classList.contains("dark") ? "Toggle Light Mode" : "Toggle Dark Mode";
     }
   </script></body>
 </html>
