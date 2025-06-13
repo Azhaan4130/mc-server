@@ -2,22 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BlastMC Staff</title>
+  <title>BlastMC Staff Team</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      background: linear-gradient(135deg, #c6f1ff, #e9faff);
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #c6f1ff, #e9faff);
+      color: #00334d;
+      overflow-x: hidden;
     }
 
     header {
-      background: #00bfff;
+      background: linear-gradient(90deg, #00bfff, #66d9ff);
       color: white;
-      padding: 20px;
-      font-size: 26px;
-      font-weight: bold;
       text-align: center;
+      padding: 30px 0;
+      font-size: 34px;
+      font-weight: 900;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 191, 255, 0.2);
     }
 
     nav {
@@ -37,41 +41,70 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding: 30px;
+      padding: 40px 20px;
+      gap: 30px;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 12px;
+    .staff-card {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
       padding: 20px;
       width: 200px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.2s ease;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s ease;
     }
 
-    .card:hover {
-      transform: scale(1.05);
+    .staff-card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .skin {
-      width: 100px;
-      height: 100px;
-      border-radius: 8px;
+    .staff-card img {
+      width: 100%;
       image-rendering: pixelated;
     }
 
     .name {
+      font-weight: bold;
       font-size: 18px;
       margin-top: 10px;
-      font-weight: bold;
-      color: #00334d;
     }
 
     .role {
       font-size: 14px;
-      color: #0077aa;
+      color: #005577;
+    }
+
+    .loader {
+      width: 100vw;
+      height: 100vh;
+      background: #c6f1ff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .loader div {
+      width: 50px;
+      height: 50px;
+      border: 6px solid #00bfff;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     footer {
@@ -84,41 +117,75 @@
 </head>
 <body>
 
-  <header>BlastMC Staff Members</header>
+<!-- Loading animation -->
+<div class="loader" id="loader">
+  <div></div>
+</div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="staff.html">Staff</a>
-    <a href="https://discord.gg/YOUR_INVITE" target="_blank">Discord</a>
-  </nav>
+<header>BlastMC Staff Team</header>
 
-  <div class="staff-container">
+<nav>
+  <a href="index.html">Home</a>
+  <a href="staff.html" class="active">Staff</a>
+  <a href="https://discord.gg/YOUR_INVITE" target="_blank">Discord</a>
+</nav>
 
-    <div class="card">
-      <img class="skin" src="https://mc-heads.net/avatar/Azhan4130/100" alt="Azhan">
-      <div class="name">Azhan4130</div>
-      <div class="role">Owner</div>
-    </div>
+<div class="staff-container" id="staffList">
+  <!-- Staff members will be inserted here -->
+</div>
 
-    <div class="card">
-      <img class="skin" src="https://mc-heads.net/avatar/YourFriend1/100" alt="Staff 1">
-      <div class="name">YourFriend1</div>
-      <div class="role">Admin</div>
-    </div>
+<footer>&copy; 2025 BlastMC | Made by Azhan 🎮</footer>
 
-    <div class="card">
-      <img class="skin" src="https://mc-heads.net/avatar/YourFriend2/100" alt="Staff 2">
-      <div class="name">YourFriend2</div>
-      <div class="role">Moderator</div>
-    </div>
+<script>
+  // Staff Data
+  const staff = [
+    { name: "Azhaan_Gamerz", role: "Owner" },
+    { name: "RIPxBEAST", role: "Owner" },
+    { name: "EVExREXY", role: "CEO & Founder" },
+    { name: "Akhi_hero", role: "Admin" },
+    { name: "Sufianishero", role: "Admin" },
+    { name: "UdiyanSinha", role: "Moderator" },
+    { name: "UCHIHA", role: "Moderator" }
+  ];
 
-    <!-- Add more staff cards below if needed -->
+  // Minecraft full body skin render (standing pose)
+  const skinAPI = (username) =>
+    `https://visage.surgeplay.com/full/256/${username}`;
 
-  </div>
+  const container = document.getElementById("staffList");
 
-  <footer>
-    &copy; 2025 BlastMC • Crafted with 💙 by Azhan
-  </footer>
+  staff.forEach((member, i) => {
+    const div = document.createElement("div");
+    div.className = "staff-card";
+    div.innerHTML = `
+      <img src="${skinAPI(member.name)}" alt="${member.name}'s Skin">
+      <div class="name">${member.name}</div>
+      <div class="role">${member.role}</div>
+    `;
+    container.appendChild(div);
+  });
+
+  // Show scroll animation
+  function showCardsOnScroll() {
+    const cards = document.querySelectorAll(".staff-card");
+    cards.forEach(card => {
+      const top = card.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        card.classList.add("show");
+      }
+    });
+  }
+
+  // Loading spinner
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+      showCardsOnScroll(); // show cards on load
+    }, 700); // small delay for effect
+  });
+
+  window.addEventListener("scroll", showCardsOnScroll);
+</script>
 
 </body>
 </html>
