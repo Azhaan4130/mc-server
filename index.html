@@ -9,55 +9,42 @@
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
     body {background-color: #0c0c0f; color: white; overflow-x: hidden;}
-    header {
-      background-color: #121219; padding: 1.5rem 3rem;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; position: relative;
-    }
+    header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; position: relative;}
     .logo img {height: 60px;}
     nav {display: flex; align-items: center;}
     nav a {margin: 0 15px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s;}
     nav a:hover {color: #00bfff;}
     .hamburger {display: none; font-size: 1.5rem; cursor: pointer; color: white;}
-    .mobile-nav {
-      display: none; flex-direction: column; background-color: #121219;
-      position: absolute; top: 100%; left: 0; width: 100%; padding: 1rem; z-index: 10;
-    }
+    .mobile-nav {display: none; flex-direction: column; background-color: #121219; position: absolute; top: 100%; left: 0; width: 100%; padding: 1rem; z-index: 10;}
     .mobile-nav a {margin: 10px 0; color: white; text-decoration: none; font-weight: 500;}
-    .banner {
-      width: 100%; height: 100vh; background: url('https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-06-02_22-50-10-761.jpg') no-repeat center center/cover;
-      display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;
-    }
-    .banner-content {
-      background-color: rgba(0,0,0,0.6); padding: 2rem; border-radius: 12px; backdrop-filter: blur(4px);
-    }
-    .banner-content h1 {
-      font-size: 4rem; margin-bottom: 1rem;
-      background: linear-gradient(90deg, #00bfff, #1e90ff);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
+    .banner {position: relative; width: 100%; height: 100vh; background: url('https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-06-02_22-50-10-761.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
+    .banner-content {z-index: 1; max-width: 800px; background-color: rgba(0, 0, 0, 0.6); padding: 2rem; border-radius: 12px;}
+    .banner-content h1 {font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00bfff, #1e90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
     .banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
     .btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
-    .store-btn, .discord-btn {
-      display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px;
-      font-weight: bold; text-decoration: none; transition: 0.3s;
-    }
+    .store-btn, .discord-btn {display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s;}
     .store-btn {background: #00bfff; color: white;}
     .store-btn:hover {background: #0099cc;}
     .discord-btn {background: #5865F2; color: white;}
     .discord-btn:hover {background: #4752c4;}
-    section {padding: 4rem 2rem; text-align: center;}
-    .section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
+    .features, .ranks, .coins, .how-to-join, .faq {padding: 4rem 2rem; text-align: center;}
+    .features h2, .ranks h2, .coins h2, .how-to-join h2, .faq h2 {color: #00bfff; margin-bottom: 2rem; font-size: 2.5rem;}
+    .features .grid, .ranks .grid, .coins .grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; justify-items: center;}
+    .feature-box, .rank-box, .coin-box {background-color: #1a1a2e; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #00bfff80;}
+    .feature-box p {color: #ccc;}
+    .rank-box img, .coin-box img {width: 80px; height: 80px; margin-bottom: 1rem;}
+    .how-to-join ol {text-align: left; max-width: 600px; margin: auto;}
+    .how-to-join li {margin: 1rem 0; padding: 1rem; background-color: #121219; border-left: 4px solid #00bfff;}
+    .faq .question {cursor: pointer; padding: 1rem; border-bottom: 1px solid #333;}
+    .faq .answer {display: none; padding: 0 1rem 1rem; color: #ccc;}
     .footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
-    .footer a {color: #00bfff; text-decoration: none;}@media (max-width: 768px) {
-  .hamburger {display: block; order: 2;}
-  nav {display: none;}
-  .mobile-nav.show {display: flex;}
-  header {flex-direction: column; align-items: flex-start;}
-  .banner-content h1 {font-size: 2.5rem;}
-  .banner-content p {font-size: 1rem;}
-}
-
+    .footer a {color: #00bfff; text-decoration: none; margin: 0 10px;}
+    @media (max-width: 768px) {
+      .hamburger {display: block;}
+      nav {display: none;}
+      .mobile-nav.show {display: flex;}
+      header {flex-direction: column; align-items: flex-start;}
+    }
   </style>
 </head>
 <body>
@@ -81,21 +68,105 @@
   </header>  <section class="banner">
     <div class="banner-content">
       <h1>Welcome to BlastMC</h1>
-      <p>Experience the ultimate Minecraft adventure with amazing ranks, perks, and coins!</p>
+      <p>Your ultimate Minecraft adventure begins here. Join us now!</p>
       <div class="btn-group">
-        <a href="#ranks" class="store-btn">Ranks</a>
+        <a href="#store" class="store-btn">Visit Store</a>
         <a href="https://discord.gg/blastmc" class="discord-btn">Join Discord</a>
       </div>
     </div>
-  </section>  <!-- More sections like Ranks, Coins, How to Join, FAQ, etc. go here -->  <footer class="footer">
-    &copy; 2025 BlastMC. All rights reserved. | Designed with 💙 for the Minecraft community.
-    <br>
-    <a href="https://discord.gg/blastmc">Discord</a> | <a href="https://www.youtube.com/@AzhaanGamerz">YouTube</a>
+  </section>  <section class="features">
+    <h2>What is BlastMC?</h2>
+    <div class="grid">
+      <div class="feature-box">✨ <h3>User-Friendly</h3><p>Easy to navigate and play for everyone.</p></div>
+      <div class="feature-box">🔄 <h3>Always Updated</h3><p>New content and fixes weekly.</p></div>
+      <div class="feature-box">⚡ <h3>Fast Support</h3><p>Quick help from our friendly staff.</p></div>
+      <div class="feature-box">🎖️ <h3>Choose Your Ranks</h3><p>Select from a variety of exciting rank perks.</p></div>
+    </div>
+  </section>  <section class="ranks" id="store">
+    <h2>Ranks</h2>
+    <div class="grid">
+      <div class="rank-box">
+        <img src="rank-blaster.png" alt="Blaster Rank">
+        <h3 style="color:aqua;">Blaster</h3>
+        <p>All perks unlocked. The ultimate BlastMC experience!</p>
+      </div>
+      <div class="rank-box">
+        <img src="rank-deadliest.png" alt="Deadliest Rank">
+        <h3 style="color:blue;">Deadliest</h3>
+        <p>Great starter rank with kits and visual perks.</p>
+      </div>
+      <div class="rank-box">
+        <img src="rank-supreme.png" alt="Supreme Rank">
+        <h3 style="color:red;">Supreme</h3>
+        <p>Premium features and elevated command access.</p>
+      </div>
+      <div class="rank-box">
+        <img src="rank-godly.png" alt="Godly Rank">
+        <h3 style="color:#ff69b4;">Godly</h3>
+        <p>Exclusive god-tier powers and visuals.</p>
+      </div>
+      <div class="rank-box">
+        <img src="rank-elite.png" alt="Elite Rank">
+        <h3 style="color:yellow;">Elite</h3>
+        <p>Solid all-rounder rank with fun extras.</p>
+      </div>
+    </div>
+  </section>  <section class="coins">
+    <h2>💰 Coin Packs</h2>
+    <div class="grid">
+      <div class="coin-box">
+        <img src="coin-pack1.png" alt="1000 Coins">
+        <h3>1000 Coins + Mythic Key</h3>
+        <p>Get an edge with keys and coins combo.</p>
+        <p><strong>Price: ₹89</strong></p>
+      </div>
+      <div class="coin-box">
+        <img src="coin-pack2.png" alt="2500 Coins">
+        <h3>2500 Coins + 2 Mythic Keys</h3>
+        <p>Boost your game with bonus keys.</p>
+        <p><strong>Price: ₹149</strong></p>
+      </div>
+    </div>
+  </section>  <section class="how-to-join">
+    <h2>📥 How to Join BlastMC</h2>
+    <ol>
+      <li>🌐 Open Minecraft ➜ Multiplayer ➜ Add Server</li>
+      <li>🔗 Enter Server Address ➜ <strong>play.blastmc.fun</strong></li>
+      <li>🎮 You're in! Start playing and enjoy BlastMC</li>
+    </ol>
+  </section>  <section class="faq">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="question">▼ What is the server IP?</div>
+    <div class="answer">play.blastmc.fun</div>
+    <div class="question">▼ Which Minecraft versions are supported?</div>
+    <div class="answer">We support Minecraft Java Edition 1.8 to latest.</div>
+    <div class="question">▼ Do you have a Discord server?</div>
+    <div class="answer">Yes! Join us at discord.gg/blastmc</div>
+    <div class="question">▼ Is BlastMC free to play?</div>
+    <div class="answer">Absolutely! You can play for free anytime.</div>
+    <div class="question">▼ Can I apply for staff?</div>
+    <div class="answer">Yes, staff applications open regularly on Discord.</div>
+    <div class="question">▼ Where can I purchase ranks?</div>
+    <div class="answer">Visit our store section above to buy ranks and coins.</div>
+  </section>  <footer class="footer">
+    &copy; 2025 BlastMC. All rights reserved.<br>
+    <a href="https://youtube.com/@BlastMC">YouTube</a> |
+    <a href="https://discord.gg/blastmc">Discord</a>
   </footer>  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  <script>
     AOS.init();
+
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('show');
     }
+
+    document.querySelectorAll('.faq .question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const arrow = q.textContent.includes('▼') ? '▲' : '▼';
+        q.textContent = q.textContent.replace(/[▼▲]/, arrow);
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
   </script></body>
 </html>
