@@ -1,183 +1,81 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BlastMC - Staff</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlastMC | Staff</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');:root {
-  --bg: #e9faff;
-  --text: #00334d;
-  --card-bg: rgba(255, 255, 255, 0.4);
-  --nav-bg: #00bfff;
-  --header-bg: linear-gradient(90deg, #00bfff, #66d9ff);
-  --shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-body.dark {
-  --bg: #0d1117;
-  --text: #e6edf3;
-  --card-bg: rgba(22, 27, 34, 0.7);
-  --nav-bg: #161b22;
-  --header-bg: linear-gradient(90deg, #10151c, #1a1f27);
-  --shadow: 0 4px 12px rgba(255,255,255,0.05);
-}
-
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition: background 0.3s, color 0.3s;
-}
-
-header {
-  background: var(--header-bg);
-  padding: 20px;
-  text-align: center;
-  color: white;
-  box-shadow: var(--shadow);
-}
-
-nav {
-  background: var(--nav-bg);
-  padding: 10px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: 'Press Start 2P', cursive;
-}
-
-.container {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.staff-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  justify-content: center;
-}
-
-.member {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s;
-}
-
-.member:hover {
-  transform: scale(1.05);
-}
-
-.skin {
-  width: 100px;
-  height: 200px;
-  background-size: cover;
-  margin: 0 auto 10px;
-  image-rendering: pixelated;
-  background-position: center;
-}
-
-.role {
-  font-weight: bold;
-  font-size: 16px;
-  color: #00bfff;
-}
-
-.desc {
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-
-.toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #00bfff;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+    body {background-color: #0c0c0f; color: white; overflow-x: hidden;}
+    header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between;}
+    .logo img {height: 60px;}
+    nav a {margin: 0 15px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s;}
+    nav a:hover {color: #00bfff;}
+    .section-title {font-size: 2.5rem; margin: 2rem 0 1rem; text-align: center; color: #00bfff;}
+    .staff-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 2rem;}
+    .staff-card {background: #1a1a2e; padding: 1rem; border-radius: 12px; text-align: center; width: 200px; transition: 0.3s;}
+    .staff-card:hover {transform: scale(1.05); background: #202040;}
+    .staff-card img {width: 100%; height: auto; border-radius: 8px;}
+    .staff-name {font-weight: bold; margin-top: 1rem; color: #00bfff;}
+    .staff-role {font-size: 0.9rem; color: #ccc;}
+    footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
+    footer a {color: #00bfff; text-decoration: none;}
+    @media (max-width: 768px) {
+      header {flex-direction: column; gap: 1rem;}
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>BlastMC Staff</h1>
-    <p>Meet the amazing team behind BlastMC</p>
-  </header>  <nav>
-    <a href="index.html">Home</a>
-    <a href="staff.html">Staff</a>
-    <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
-  </nav>  <div class="container">
-    <p class="desc">Each one of these dedicated team members helps keep BlastMC smooth, fair, and fun! 👑</p><div class="staff-grid">
-  <div class="member">
-    <div class="skin" style="background-image: url('https://mc-heads.net/body/Azhaan_Gamerz');"></div>
-    <div class="name">Azhaan_Gamerz</div>
-    <div class="role">Owner</div>
-  </div>
-
-  <div class="member">
-    <div class="skin" style="background-image: url('https://mc-heads.net/body/RIPxBEAST');"></div>
-    <div class="name">RIPxBEAST</div>
-    <div class="role">Owner</div>
-  </div>
-
-  <div class="member">
-    <div class="skin" style="background-image: url('https://mc-heads.net/body/EVExREXY');"></div>
-    <div class="name">EVExREXY</div>
-    <div class="role">CEO & Founder</div>
-  </div>
-
-  <div class="member">
-    <div class="skin" style="background-image: url('https://mc-heads.net/body/Akhi_hero');"></div>
-    <div class="name">Akhi_hero</div>
-    <div class="role">Admin</div>
-  </div>
-
-  <div class="member">
-    <div class="skin" style="background-image: url('https://mc-heads.net/body/Sufianishero');"></div>
-    <div class="name">Sufianishero</div>
-    <div class="role">Admin</div>
-  </div>
-
-  <div class="member">
-    <div class="skin" style="background-image: url('https://mc-heads.net/body/UdiyanSinha');"></div>
-    <div class="name">UdiyanSinha</div>
-    <div class="role">Moderator</div>
-  </div>
-
-  <div class="member">
-    <div class="skin" style="background-image: url('https://mc-heads.net/body/Pikachu');"></div>
-    <div class="name">Pikachu</div>
-    <div class="role">Moderator</div>
-  </div>
-</div>
-
-  </div>  <footer>&copy; 2025 BlastMC | Powered by the community</footer><button class="toggle-btn" onclick="toggleDarkMode()" id="modeBtn">Toggle Dark Mode</button>
-
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark");
-      const btn = document.getElementById("modeBtn");
-      btn.textContent = document.body.classList.contains("dark") ? "Toggle Light Mode" : "Toggle Dark Mode";
-    }
-  </script></body>
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-05-16_16-10-32-479.jpg" alt="BlastMC Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="status.html">Status</a>
+      <a href="staff.html">Staff</a>
+      <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
+    </nav>
+  </header>  <h2 class="section-title">Meet Our Staff</h2>
+  <div class="staff-container">
+    <div class="staff-card">
+      <img src="https://mc-heads.net/body/Azhaan_Gamerz/300" alt="Azhaan_Gamerz">
+      <div class="staff-name">Azhaan_Gamerz</div>
+      <div class="staff-role">Owner</div>
+    </div>
+    <div class="staff-card">
+      <img src="https://mc-heads.net/body/RIPxBEAST/300" alt="RIPxBEAST">
+      <div class="staff-name">RIPxBEAST</div>
+      <div class="staff-role">Owner</div>
+    </div>
+    <div class="staff-card">
+      <img src="https://mc-heads.net/body/EVExREXY/300" alt="EVExREXY">
+      <div class="staff-name">EVExREXY</div>
+      <div class="staff-role">Ceo Founder</div>
+    </div>
+    <div class="staff-card">
+      <img src="https://mc-heads.net/body/Akhi_hero/300" alt="Akhi_hero">
+      <div class="staff-name">Akhi_hero</div>
+      <div class="staff-role">Admin</div>
+    </div>
+    <div class="staff-card">
+      <img src="https://mc-heads.net/body/Sufianishero/300" alt="Sufianishero">
+      <div class="staff-name">Sufianishero</div>
+      <div class="staff-role">Admin</div>
+    </div>
+    <div class="staff-card">
+      <img src="https://mc-heads.net/body/UdiyanSinha/300" alt="UdiyanSinha">
+      <div class="staff-name">UdiyanSinha</div>
+      <div class="staff-role">Moderator</div>
+    </div>
+    <div class="staff-card">
+      <img src="https://mc-heads.net/body/Pikachu/300" alt="Pikachu">
+      <div class="staff-name">Pikachu</div>
+      <div class="staff-role">Moderator</div>
+    </div>
+  </div>  <footer>
+    &copy; 2025 BlastMC. All rights reserved. | Built for Minecraft fans with 💙
+  </footer>
+</body>
 </html>
