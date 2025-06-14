@@ -17,8 +17,8 @@
     .hamburger {display: none; font-size: 1.5rem; cursor: pointer; color: white;}
     .mobile-nav {display: none; flex-direction: column; background-color: #121219; position: absolute; top: 100%; left: 0; width: 100%; padding: 1rem; z-index: 10;}
     .mobile-nav a {margin: 10px 0; color: white; text-decoration: none; font-weight: 500;}
-    .banner {position: relative; width: 100%; height: 100vh; background: url('https://raw.githubusercontent.com/Azhaan4130/mc-server/main/Picsart_25-06-02_22-50-10-761.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
-    .banner-content {z-index: 1; max-width: 800px; background: rgba(0,0,0,0.6); padding: 2rem; border-radius: 10px;}
+    .banner {position: relative; width: 100%; height: 100vh; background: linear-gradient(to bottom right, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
+    .banner-content {z-index: 1; max-width: 800px;}
     .banner-content h1 {font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00bfff, #1e90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
     .banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
     .btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
@@ -26,33 +26,30 @@
     .store-btn {background: #00bfff; color: white;}
     .store-btn:hover {background: #0099cc;}
     .discord-btn {background: #5865F2; color: white;}
-    .discord-btn:hover {background: #4752c4;}.rank-section {padding: 4rem 2rem; text-align: center;}
-.rank-section h2 {color: #00bfff; font-size: 2.5rem; margin-bottom: 2rem;}
-.ranks {display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;}
-.rank {background-color: #1a1a2e; padding: 1.5rem; border-radius: 12px; width: 220px; transition: 0.3s; transform: scale(1);}
-.rank:hover {transform: scale(1.05);}
-.rank img {width: 100px; margin-bottom: 1rem;}
-.rank h3 {margin: 0.5rem 0; font-size: 1.3rem;}
-
-.section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
-.faq {max-width: 800px; margin: 0 auto; text-align: left;}
-.faq h3 {color: #00bfff; margin-top: 2rem; cursor: pointer; transition: 0.3s;}
-.faq h3:hover {color: #1e90ff;}
-.faq p {color: #ccc; margin-bottom: 1rem; display: none;}
-.steps {max-width: 900px; margin: 2rem auto; text-align: left;}
-.steps ol {list-style: decimal inside; padding-left: 1rem;}
-.steps li {margin-bottom: 1rem;}
-.footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
-.footer a {color: #00bfff; text-decoration: none;}
-@media (max-width: 768px) {
-  .hamburger {display: block;}
-  nav {display: none;}
-  .mobile-nav.show {display: flex;}
-  header {flex-direction: column; align-items: flex-start;}
-  .banner-content h1 {font-size: 2.5rem;}
-  .banner-content p {font-size: 1rem;}
-}
-
+    .discord-btn:hover {background: #4752c4;}
+    section {padding: 4rem 2rem; text-align: center;}
+    .section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
+    .faq {max-width: 800px; margin: 0 auto; text-align: left;}
+    .faq h3 {color: #00bfff; margin-top: 2rem; cursor: pointer;}
+    .faq p {color: #ccc; margin-bottom: 1rem; display: none;}
+    .steps {max-width: 900px; margin: 2rem auto; text-align: left;}
+    .steps ol {list-style: decimal inside; padding-left: 1rem;}
+    .steps li {margin-bottom: 1rem;}
+    .features {background-color: #111; padding: 3rem 1rem;}
+    .features h2 {color: #00bfff; margin-bottom: 2rem; text-align: center;}
+    .features-list {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;}
+    .feature-item {background: #1a1a2e; padding: 1.5rem; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,191,255,0.1);}
+    .feature-item i {font-size: 2rem; color: #00bfff; margin-bottom: 1rem;}
+    .footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
+    .footer a {color: #00bfff; text-decoration: none;}
+    @media (max-width: 768px) {
+      .hamburger {display: block;}
+      nav {display: none;}
+      .mobile-nav.show {display: flex;}
+      header {flex-direction: column; align-items: flex-start;}
+      .banner-content h1 {font-size: 2.5rem;}
+      .banner-content p {font-size: 1rem;}
+    }
   </style>
 </head>
 <body>
@@ -76,52 +73,35 @@
   </header>  <section class="banner">
     <div class="banner-content">
       <h1>Welcome to BlastMC</h1>
-      <p>Your ultimate Minecraft adventure server. Smooth gameplay, friendly staff, and epic fun!</p>
+      <p>Your ultimate Minecraft adventure begins here!</p>
       <div class="btn-group">
         <a href="#store" class="store-btn">Visit Store</a>
-        <a href="https://discord.gg/blastmc" class="discord-btn">Join Discord</a>
+        <a href="https://discord.gg/blastmc" class="discord-btn" target="_blank">Join Discord</a>
       </div>
     </div>
-  </section>  <section class="rank-section" id="store">
-    <h2>Ranks You Can Buy</h2>
-    <div class="ranks">
-      <div class="rank">
-        <img src="https://mc-heads.net/avatar/Alex/100.png" alt="Blaster">
-        <h3 style="color:aqua">BLASTER</h3>
+  </section>  <section class="features">
+    <h2>Why Choose BlastMC?</h2>
+    <div class="features-list">
+      <div class="feature-item">
+        <i class="fas fa-cube"></i>
+        <h3>What is BlastMC?</h3>
+        <p>A fun and exciting Minecraft server with custom modes and an amazing community.</p>
       </div>
-      <div class="rank">
-        <img src="https://mc-heads.net/avatar/Steve/100.png" alt="Deadliest">
-        <h3 style="color:blue">DEADLIEST</h3>
+      <div class="feature-item">
+        <i class="fas fa-users"></i>
+        <h3>User-Friendly</h3>
+        <p>Simple to join and play, no complicated setup needed!</p>
       </div>
-      <div class="rank">
-        <img src="https://mc-heads.net/avatar/Notch/100.png" alt="Supreme">
-        <h3 style="color:red">SUPREME</h3>
+      <div class="feature-item">
+        <i class="fas fa-sync-alt"></i>
+        <h3>Always Updated</h3>
+        <p>Frequent updates ensure new content and a stable server experience.</p>
       </div>
-      <div class="rank">
-        <img src="https://mc-heads.net/avatar/Jeb_/100.png" alt="Godly">
-        <h3 style="color:#f0f">GODLY</h3>
+      <div class="feature-item">
+        <i class="fas fa-headset"></i>
+        <h3>Fast Support</h3>
+        <p>Our friendly staff team is always ready to help you!</p>
       </div>
-      <div class="rank">
-        <img src="https://mc-heads.net/avatar/Hypixel/100.png" alt="Elite">
-        <h3 style="color:yellow">ELITE</h3>
-      </div>
-    </div>
-  </section>  <section>
-    <h2 class="section-title">How to Join BlastMC 🎮</h2>
-    <div class="steps">
-      <ol>
-        <li>Open Minecraft Java or Bedrock Edition.</li>
-        <li>Go to Multiplayer and click on Add Server.</li>
-        <li>Server IP: <strong>play.blastmc.fun</strong></li>
-        <li>Port for Bedrock: <strong>19106</strong></li>
-        <li>Click Join and start playing!</li>
-      </ol>
-    </div>
-  </section>  <section>
-    <h2 class="section-title">FAQs ❓</h2>
-    <div class="faq">
-      <h3>What is BlastMC?</h3>
-      <p>BlastMC is a Minecraft server offering Lifesteal, FFA, and Minigames with friendly support and custom features.</p>
     </div>
   </section>  <footer class="footer">
     &copy; 2025 BlastMC. All rights reserved. | Designed with 💙 for the Minecraft community.
@@ -136,13 +116,7 @@
     document.querySelectorAll('.faq h3').forEach((question) => {
       question.addEventListener('click', () => {
         const answer = question.nextElementSibling;
-        if (answer.style.display === 'block') {
-          answer.style.display = 'none';
-          answer.style.opacity = 0;
-        } else {
-          answer.style.display = 'block';
-          answer.style.opacity = 1;
-        }
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
       });
     });
   </script></body>
