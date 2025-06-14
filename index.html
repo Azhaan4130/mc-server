@@ -1,26 +1,92 @@
-<header style="background: linear-gradient(90deg,#ff5722,#ff8a50); padding:20px; text-align:center;">
-  <img src="YOUR_LOGO_LINK" alt="BlastMC Logo" style="max-width:120px;">
-  <h1 style="font-family:Oswald,sans-serif;color:#fff;margin:10px 0;">BlastMC Network</h1>
-  <p style="color:#ffe6d5;">Java & Bedrock • Powered by Velocity</p>
-</header>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlastMC - Minecraft Server</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --main-color: #ff5722;
+      --accent-color: #ff8a50;
+      --dark-bg: #121212;
+      --light-bg: #fff3e0;
+      --text-color: #ffffff;
+    }body {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  background-color: #1e1e1e;
+  color: var(--text-color);
+}
 
-<section style="text-align:center; margin:30px 0;">
-  <div id="statusCard" style="display:inline-block;padding:20px 30px;
-       background:#fff3e0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
-    <h2 id="serverStatus" style="color:#e65100;">Checking status...</h2>
-    <p style="font-family:monospace;">play.blastmc.fun : 19106</p>
-    <button onclick="copyIP()" style="background:#ff5722;color:#fff;border:none;padding:10px 20px;
-            border-radius:6px; cursor:pointer;">Copy IP</button>
-  </div>
-</section>
+header {
+  background: linear-gradient(90deg, var(--main-color), var(--accent-color));
+  padding: 30px;
+  text-align: center;
+}
 
-<script>
-  async function checkStatus() {
-    const res = await fetch('https://api.mcstatus.io/v2/status/java/play.blastmc.fun:19106');
-    const d = await res.json();
-    document.getElementById('serverStatus').innerHTML = d.online
-      ? `🟢 Online — ${d.players.online} online`
-      : '🔴 Offline';
-  }
-  checkStatus(); setInterval(checkStatus, 15000);
-</script>
+header img {
+  width: 120px;
+  border-radius: 12px;
+}
+
+header h1 {
+  margin: 15px 0 5px;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ffe6d5;
+}
+
+nav {
+  background: #2b2b2b;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+footer {
+  background: #2b2b2b;
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.banner {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="YOUR_LOGO_URL_HERE" alt="BlastMC Logo">
+    <h1>BlastMC Network</h1>
+    <p>Join the fun • Java & Bedrock • play.blastmc.fun:19106</p>
+  </header>  <nav>
+    <a href="index.html">Home</a>
+    <a href="status.html">Status</a>
+    <a href="staff.html">Staff</a>
+    <a href="https://discord.gg/blastmc" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+  </nav>  <img class="banner" src="YOUR_BANNER_URL_HERE" alt="BlastMC Banner">  <footer>
+    &copy; 2025 BlastMC | All rights reserved. Theme inspired by FlameMC
+  </footer>
+</body>
+</html>
