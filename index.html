@@ -9,42 +9,91 @@
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
     body {background-color: #0c0c0f; color: white; overflow-x: hidden;}
-    header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; position: relative;}
+    header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 10;}
     .logo img {height: 60px;}
     nav {display: flex; align-items: center;}
     nav a {margin: 0 15px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s;}
     nav a:hover {color: #00bfff;}
     .hamburger {display: none; font-size: 1.5rem; cursor: pointer; color: white;}
     .mobile-nav {display: none; flex-direction: column; background-color: #121219; position: absolute; top: 100%; left: 0; width: 100%; padding: 1rem; z-index: 10;}
-    .mobile-nav a {margin: 10px 0; color: white; text-decoration: none; font-weight: 500;}
-    .banner {position: relative; width: 100%; height: 100vh; background: url('https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-06-02_22-50-10-761.jpg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
-    .banner-content {z-index: 1; max-width: 800px; background-color: rgba(0,0,0,0.6); padding: 2rem; border-radius: 10px;}
-    .banner-content h1 {font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00bfff, #1e90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
-    .banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
-    .btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
-    .store-btn, .discord-btn {display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s;}
-    .store-btn {background: #00bfff; color: white;}
-    .store-btn:hover {background: #0099cc;}
-    .discord-btn {background: #5865F2; color: white;}
-    .discord-btn:hover {background: #4752c4;}
-    .features, .ranks, .coins, .join-steps, .faq-section {padding: 4rem 2rem; text-align: center;}
-    .features h2, .ranks h2, .coins h2, .join-steps h2, .faq-section h2 {color: #00bfff; margin-bottom: 2rem; font-size: 2.5rem;}
-    .feature-item, .rank-item, .coin-item {margin: 1rem auto; max-width: 700px; padding: 1rem; background: #1a1a2e; border-radius: 10px; box-shadow: 0 0 10px #00bfff66;}
-    .faq {max-width: 800px; margin: 0 auto; text-align: left;}
-    .faq h3 {color: #00bfff; margin-top: 2rem; cursor: pointer; position: relative;}
-    .faq h3::after {content: "\25BC"; float: right; transition: transform 0.3s;}
-    .faq h3.open::after {transform: rotate(180deg);}
-    .faq p {color: #ccc; margin-bottom: 1rem; display: none;}
-    .footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
-    .footer a {color: #00bfff; text-decoration: none; margin: 0 10px;}
-    @media (max-width: 768px) {
-      .hamburger {display: block;}
-      nav {display: none;}
-      .mobile-nav.show {display: flex;}
-      header {flex-direction: column; align-items: flex-start;}
-      .banner-content h1 {font-size: 2.5rem;}
-      .banner-content p {font-size: 1rem;}
-    }
+    .mobile-nav a {margin: 10px 0; color: white; text-decoration: none; font-weight: 500;}.banner {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: url('https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-06-02_22-50-10-761.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.banner-content {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 12px;
+}
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #00bfff, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.banner-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.features, .ranks, .coin-packs, .how-to-join, .faq, .footer {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+.section-title {
+  font-size: 2.2rem;
+  color: #00bfff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.feature-list, .ranks-list, .coin-list, .join-steps, .faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.feature-item, .rank-item, .coin-item, .join-step, .faq-item {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: 0.3s;
+}
+.rank-item img, .coin-item img, .join-step img {
+  max-width: 100px;
+  margin: 0 auto 1rem;
+}
+.faq-item h4 {
+  cursor: pointer;
+}
+.faq-item p {
+  display: none;
+  margin-top: 0.5rem;
+  color: #ccc;
+}
+.footer {
+  background-color: #121219;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.footer a {
+  color: #00bfff;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .hamburger {display: block;}
+  nav {display: none;}
+  .mobile-nav.show {display: flex;}
+  header {flex-direction: column; align-items: flex-start;}
+}
+
   </style>
 </head>
 <body>
@@ -65,61 +114,88 @@
       <a href="staff.html">Staff</a>
       <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
     </div>
-  </header>  <div class="features">
-    <h2>🔥 What is BlastMC?</h2>
-    <div class="feature-item">🚀 User-Friendly</div>
-    <div class="feature-item">🔄 Always Updated</div>
-    <div class="feature-item">⚡ Fast Support</div>
-    <div class="feature-item">🎖 Choose Your Rank</div>
-  </div>  <div class="ranks">
-    <h2>Ranks</h2>
-    <div class="rank-item" style="border-left: 5px solid aqua;">BLASTER - All perks unlocked. The ultimate BlastMC experience!</div>
-    <div class="rank-item" style="border-left: 5px solid blue;">DEADLIEST - Great starter rank with kits and visual perks.</div>
-    <div class="rank-item" style="border-left: 5px solid red;">SUPREME - Premium features and elevated command</div>
-    <div class="rank-item">GODLY - Custom features and server love</div>
-    <div class="rank-item" style="border-left: 5px solid yellow;">ELITE - Exclusive access and visual upgrades</div>
-  </div>  <div class="coins">
-    <h2>💰 Coin Packs</h2>
-    <div class="coin-item">💸 1000 Coins + Mythic Key - ₹89</div>
-    <div class="coin-item">🎁 2500 Coins + 2 Mythic Keys - ₹149</div>
-  </div>  <div class="join-steps">
-    <h2>🚪 How to Join BlastMC</h2>
-    <div class="feature-item">1️⃣ Open Minecraft → Multiplayer → Add Server</div>
-    <div class="feature-item">2️⃣ Enter server address: <b>play.blastmc.fun</b> and click done</div>
-    <div class="feature-item">3️⃣ You're in! Start playing and enjoy the world of BlastMC 🎮</div>
-    <div class="feature-item"><h3>💬 Join Our Discord Server</h3><a href="https://discord.gg/blastmc" class="discord-btn">Join Discord</a></div>
-  </div>  <div class="faq-section">
-    <h2>❓ FAQ</h2>
-    <div class="faq">
-      <h3>Q1. What is the server IP?</h3>
-      <p>A: play.blastmc.fun</p>
-      <h3>Q2. Which Minecraft versions are supported?</h3>
-      <p>A: We support 1.16 - Latest</p>
-      <h3>Q3. Do you have a discord server?</h3>
-      <p>A: Yes! Join us at https://discord.gg/blastmc</p>
-      <h3>Q4. Is BlastMC free to play?</h3>
-      <p>A: Absolutely!</p>
-      <h3>Q5. Can I apply for staff?</h3>
-      <p>A: Yes, check our Discord for staff applications.</p>
-      <h3>Q6. Where can I purchase ranks?</h3>
-      <p>A: Visit store.blastmc.fun to explore rank options.</p>
+  </header>  <section class="banner">
+    <div class="banner-content">
+      <h1>Welcome to BlastMC</h1>
+      <p>Experience the ultimate Minecraft adventure with cool features and epic ranks!</p>
     </div>
-  </div>  <footer class="footer">
-    &copy; 2025 BlastMC. All rights reserved. | <a href="https://youtube.com/@BlastMC">YouTube</a> | <a href="https://discord.gg/blastmc">Discord</a>
-  </footer>  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  <script>
-    AOS.init();
-
+  </section>  <section class="features">
+    <div class="section-title">What is BlastMC?</div>
+    <div class="feature-list">
+      <div class="feature-item">🤝 User Friendly</div>
+      <div class="feature-item">🔁 Always Updated</div>
+      <div class="feature-item">⚡ Fast Support</div>
+      <div class="feature-item">🎖️ Choose Your Rank</div>
+    </div>
+  </section>  <section class="ranks">
+    <div class="section-title">Ranks</div>
+    <div class="ranks-list">
+      <div class="rank-item" style="border: 2px solid aqua">BLASTER<br>All perks unlocked. The ultimate BlastMC experience!</div>
+      <div class="rank-item" style="border: 2px solid blue">DEADLIEST<br>Great starter rank with kits and visual perks.</div>
+      <div class="rank-item" style="border: 2px solid red">SUPREME<br>Premium features and elevated command.</div>
+      <div class="rank-item" style="border: 2px solid purple">GODLY<br>Unlock divine perks and rare cosmetics!</div>
+      <div class="rank-item" style="border: 2px solid yellow">ELITE<br>Special abilities and golden cosmetics!</div>
+    </div>
+  </section>  <section class="coin-packs">
+    <div class="section-title">💰 Coin Packs</div>
+    <div class="coin-list">
+      <div class="coin-item">🎁 1000 Coins + Mythic Key<br>Price: ₹89</div>
+      <div class="coin-item">💎 2500 Coins + 2 Mythic Keys<br>Price: ₹149</div>
+    </div>
+  </section>  <section class="how-to-join">
+    <div class="section-title">🚀 How to Join BlastMC</div>
+    <div class="join-steps">
+      <div class="join-step">1️⃣ Add the Server<br>Open Minecraft → Multiplayer → Add Server</div>
+      <div class="join-step">2️⃣ Enter Server Address<br><b>play.blastmc.fun</b> and click Done</div>
+      <div class="join-step">3️⃣ You're in!<br>Enjoy your journey in BlastMC!</div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <h2>Join Our Discord Server</h2>
+      <a class="discord-btn" href="https://discord.gg/blastmc" target="_blank">Join Now</a>
+    </div>
+  </section>  <section class="faq">
+    <div class="section-title">❓ Frequently Asked Questions</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4 onclick="toggleFaq(this)">Q1: What is the server IP? ▼</h4>
+        <p>A: The IP is <b>play.blastmc.fun</b></p>
+      </div>
+      <div class="faq-item">
+        <h4 onclick="toggleFaq(this)">Q2: Which Minecraft versions are supported? ▼</h4>
+        <p>A: Most Java versions are supported including 1.8 - latest.</p>
+      </div>
+      <div class="faq-item">
+        <h4 onclick="toggleFaq(this)">Q3: Do you have a Discord server? ▼</h4>
+        <p>A: Yes! Join us on <a href="https://discord.gg/blastmc">Discord</a>.</p>
+      </div>
+      <div class="faq-item">
+        <h4 onclick="toggleFaq(this)">Q4: Is BlastMC free to play? ▼</h4>
+        <p>A: Yes, completely free with optional purchases.</p>
+      </div>
+      <div class="faq-item">
+        <h4 onclick="toggleFaq(this)">Q5: Can I apply for staff? ▼</h4>
+        <p>A: Yes! Visit the Staff page for more info.</p>
+      </div>
+      <div class="faq-item">
+        <h4 onclick="toggleFaq(this)">Q6: Where can I purchase ranks? ▼</h4>
+        <p>A: Visit the store on this website!</p>
+      </div>
+    </div>
+  </section>  <footer class="footer">
+    &copy; 2025 BlastMC. All rights reserved. | <a href="https://discord.gg/blastmc">Discord</a> | <a href="#">YouTube</a>
+  </footer>  <script>
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('show');
     }
 
-    document.querySelectorAll('.faq h3').forEach((question) => {
-      question.addEventListener('click', () => {
-        question.classList.toggle('open');
-        const answer = question.nextElementSibling;
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-      });
-    });
+    function toggleFaq(el) {
+      const p = el.nextElementSibling;
+      const arrowDown = '▼';
+      const arrowUp = '▲';
+      const isOpen = p.style.display === 'block';
+      p.style.display = isOpen ? 'none' : 'block';
+      el.innerHTML = el.innerHTML.replace(isOpen ? arrowUp : arrowDown, isOpen ? arrowDown : arrowUp);
+    }
   </script></body>
 </html>
