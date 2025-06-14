@@ -14,12 +14,19 @@
   font-family: 'Poppins', sans-serif;
   background: #0f0f0f;
   color: #f5f5f5;
+  overflow-x: hidden;
 }
 
 header {
   background: linear-gradient(135deg, #1e88e5, #42a5f5);
   text-align: center;
   padding: 50px 20px 20px;
+  animation: fadeInDown 1.2s ease;
+}
+
+@keyframes fadeInDown {
+  0% { transform: translateY(-30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 header img {
@@ -63,11 +70,18 @@ nav a:hover {
   width: 100%;
   max-height: 350px;
   object-fit: cover;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .main-content {
   text-align: center;
   padding: 50px 20px;
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 .main-content h2 {
@@ -82,6 +96,33 @@ nav a:hover {
   line-height: 1.6;
 }
 
+.store-section {
+  background: #121212;
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.store-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.store-section a {
+  display: inline-block;
+  background: #42a5f5;
+  padding: 12px 25px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.store-section a:hover {
+  background: #1e88e5;
+}
+
 footer {
   background: #121212;
   text-align: center;
@@ -91,11 +132,18 @@ footer {
   margin-top: 50px;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
   </style>
 </head>
 <body>
   <header>
-    <img src="https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-05-16_16-10-32-479.jpg" alt="BlastMC Logo">
+    <a href="index.html">
+      <img src="https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-05-16_16-10-32-479.jpg" alt="BlastMC Logo">
+    </a>
     <h1>BlastMC Network</h1>
     <p>Join the ultimate Minecraft experience</p>
   </header>  <nav>
@@ -106,8 +154,11 @@ footer {
   </nav>  <img class="banner" src="https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-06-02_22-50-10-761.jpg" alt="BlastMC Banner">  <div class="main-content">
     <h2>Welcome to BlastMC</h2>
     <p>We are a community-driven Minecraft server offering premium features like Lifesteal, FFA, and more. Whether you play on Java or Bedrock, join us at <strong>play.blastmc.fun</strong> (Port: 19106) and be part of the fun!</p>
+  </div>  <div class="store-section">
+    <h2>🛒 Visit Our Store</h2>
+    <a href="https://blastmc.store" target="_blank">Go to Store</a>
   </div>  <footer>
-    &copy; 2025 BlastMC | All rights reserved. Theme
+    &copy; 2025 BlastMC | All rights reserved. Theme inspired by FlameMC
   </footer>
 </body>
 </html>
