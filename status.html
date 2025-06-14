@@ -2,26 +2,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BlastMC | Staff</title>
+  <title>BlastMC | Status</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
-    body {background-color: #0c0c0f; color: white;}
+    body {background-color: #0c0c0f; color: white; overflow-x: hidden;}
     header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between;}
     .logo img {height: 60px;}
     nav a {margin: 0 15px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s;}
-    nav a:hover {color: #00bfff;}.container {padding: 4rem 2rem; max-width: 1200px; margin: auto; text-align: center;}
-.section-title {font-size: 2.5rem; margin-bottom: 2rem; color: #00bfff;}
-.staff-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;}
-.staff-card {background: #121219; border-radius: 12px; padding: 1.5rem; transition: 0.3s; box-shadow: 0 0 10px rgba(0,0,0,0.4);}
-.staff-card:hover {transform: translateY(-5px); background-color: #1c1c2b;}
-.staff-card img {width: 100px; height: auto; display: block; margin: 0 auto 1rem;}
-.staff-card h3 {margin: 0.5rem 0 0.3rem; font-size: 1.2rem; color: #00bfff;}
-.staff-card p {margin: 0; color: #ccc;}
-footer {text-align: center; padding: 2rem; background: #121219; margin-top: 3rem; color: #999; font-size: 0.9rem;}
-
+    nav a:hover {color: #00bfff;}
+    .status-wrapper {padding: 3rem 1rem; max-width: 1000px; margin: auto; text-align: center;}
+    .status-title {font-size: 2.5rem; color: #00bfff; margin-bottom: 2rem;}
+    .server-status {background: #121219; padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; box-shadow: 0 0 10px rgba(0,191,255,0.2); display: flex; flex-direction: column; align-items: center; animation: fadeInUp 1s ease forwards;}
+    .server-status h3 {font-size: 1.5rem; margin-bottom: 0.5rem;}
+    .server-status p {font-size: 1rem; color: #ccc;}
+    .emoji {font-size: 1.5rem; margin-right: 0.5rem;}
+    .footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
@@ -35,53 +37,53 @@ footer {text-align: center; padding: 2rem; background: #121219; margin-top: 3rem
       <a href="staff.html">Staff</a>
       <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
     </nav>
-  </header>  <div class="container">
-    <h1 class="section-title" data-aos="fade-down">Meet Our Staff</h1>
-    <div class="staff-grid">
-      <div class="staff-card" data-aos="fade-up">
-        <img src="https://visage.surgeplay.com/full/Azhaan_Gamerz.png" alt="Azhaan">
-        <h3>Azhaan_Gamerz</h3>
-        <p>Owner</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://visage.surgeplay.com/full/RIPxBEAST.png" alt="RIPxBEAST">
-        <h3>RIPxBEAST</h3>
-        <p>Owner</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://visage.surgeplay.com/full/EVExREXY.png" alt="EVExREXY">
-        <h3>EVExREXY</h3>
-        <p>CEO / Founder</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://visage.surgeplay.com/full/Akhi_hero.png" alt="Akhi_hero">
-        <h3>Akhi_hero</h3>
-        <p>Admin</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="400">
-        <img src="https://visage.surgeplay.com/full/Sufianishero.png" alt="Sufianishero">
-        <h3>Sufianishero</h3>
-        <p>Admin</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="500">
-        <img src="https://visage.surgeplay.com/full/UdiyanSinha.png" alt="UdiyanSinha">
-        <h3>UdiyanSinha</h3>
-        <p>Moderator</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="600">
-        <img src="https://visage.surgeplay.com/full/Pikachu.png" alt="Pikachu">
-        <h3>Pikachu</h3>
-        <p>Moderator</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="700">
-        <img src="https://visage.surgeplay.com/full/Madhav.png" alt="Madhav">
-        <h3>Madhav</h3>
-        <p>Owner</p>
-      </div>
+  </header>  <div class="status-wrapper" data-aos="fade-up">
+    <h1 class="status-title">🔌 Server Status</h1>
+    <div id="server-container">
+      <!-- Status will be loaded by JS -->
     </div>
-  </div>  <footer>
-    &copy; 2025 BlastMC. All rights reserved. | Staff Showcase
-  </footer>  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  <script>
-    AOS.init({ duration: 1000 });
+  </div>  <footer class="footer">
+    &copy; 2025 BlastMC. All rights reserved. | Designed with 💙 for the Minecraft community.
+  </footer>  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  <script>AOS.init();</script>  <script>
+    const servers = [
+      { name: 'LOBBY', emoji: '🏠', ip: 'play.blastmc.fun', port: '19106' },
+      { name: 'LIFESTEAL', emoji: '🗡️', ip: 'play.blastmc.fun', port: '19106' },
+      { name: 'FFA', emoji: '⚔️', ip: 'play.blastmc.fun', port: '19106' },
+      { name: 'MINIGAMES', emoji: '🎮', ip: 'play.blastmc.fun', port: '19106' }
+    ];
+
+    const container = document.getElementById('server-container');
+
+    fetch(`https://api.mcstatus.io/v2/status/java/play.blastmc.fun:19106`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.online) {
+          servers.forEach(server => {
+            const card = document.createElement('div');
+            card.className = 'server-status';
+            card.setAttribute('data-aos', 'zoom-in-up');
+            card.innerHTML = `
+              <h3><span class="emoji">${server.emoji}</span> ${server.name}</h3>
+              <p><strong>IP:</strong> ${server.ip}</p>
+              <p><strong>Status:</strong> <span style="color:limegreen">Online</span></p>
+              <p><strong>Players:</strong> ${data.players.online} / ${data.players.max}</p>
+            `;
+            container.appendChild(card);
+          });
+        } else {
+          const msg = document.createElement('p');
+          msg.style.color = 'red';
+          msg.style.marginTop = '2rem';
+          msg.innerText = 'Velocity server is currently offline. All sub-servers are unavailable.';
+          container.appendChild(msg);
+        }
+      })
+      .catch(err => {
+        const errMsg = document.createElement('p');
+        errMsg.style.color = 'orange';
+        errMsg.style.marginTop = '2rem';
+        errMsg.innerText = 'Unable to fetch status. Please try again later.';
+        container.appendChild(errMsg);
+      });
   </script></body>
 </html>
