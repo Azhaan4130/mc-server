@@ -5,48 +5,53 @@
   <title>BlastMC | Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
     body {background-color: #0c0c0f; color: white; overflow-x: hidden;}
     header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; position: relative;}
     .logo img {height: 60px;}
-    .hamburger {display: none; font-size: 1.8rem; color: white; cursor: pointer;}
     nav {display: flex; align-items: center;}
     nav a {margin: 0 15px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s;}
-    nav a:hover {color: #00bfff;}@media (max-width: 768px) {
-  .hamburger {display: block;}
-  nav {display: none; flex-direction: column; background-color: #121219; width: 100%; position: absolute; top: 80px; left: 0; padding: 1rem; z-index: 999;}
-  nav a {margin: 10px 0; font-size: 1.2rem;}
-  nav.show {display: flex;}
-}
-
-.banner {position: relative; width: 100%; height: 100vh; background: linear-gradient(to bottom right, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
-.banner-content {z-index: 1; max-width: 800px;}
-.banner-content h1 {font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00bfff, #1e90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
-.banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
-.btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
-.store-btn, .discord-btn {display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s;}
-.store-btn {background: #00bfff; color: white;}
-.store-btn:hover {background: #0099cc;}
-.discord-btn {background: #5865F2; color: white;}
-.discord-btn:hover {background: #4752c4;}
-section {padding: 4rem 2rem; text-align: center;}
-.section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
-.faq {max-width: 800px; margin: 0 auto; text-align: left; background-color: #1c1c25; padding: 2rem; border-radius: 10px;}
-.faq h3 {color: #00bfff; margin-top: 2rem; cursor: pointer;}
-.faq p {color: #ccc; margin-bottom: 1rem; display: none;}
-.faq h3.active + p {display: block;}
-.steps {max-width: 900px; margin: 2rem auto; text-align: left; background: url('https://i.imgur.com/xl7A5Pf.jpeg'); background-size: cover; background-position: center; padding: 2rem; border-radius: 10px;}
-.steps ol {list-style: decimal inside; padding-left: 1rem;}
-.steps li {margin-bottom: 1rem; color: white;}
-.footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
-.footer a {color: #00bfff; text-decoration: none;}
-.features {display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 3rem;}
-.feature-box {background: #1c1c25; padding: 1.5rem; border-radius: 12px; width: 220px; text-align: center;}
-.feature-box i {font-size: 2rem; color: #00bfff; margin-bottom: 1rem;}
-.feature-box h4 {margin-bottom: 0.5rem; color: #00bfff;}
-.feature-box p {color: #ccc;}
-
+    nav a:hover {color: #00bfff;}
+    .hamburger {display: none; font-size: 1.5rem; cursor: pointer; color: white;}
+    .mobile-nav {display: none; flex-direction: column; background-color: #121219; position: absolute; top: 100%; left: 0; width: 100%; padding: 1rem; z-index: 10;}
+    .mobile-nav a {margin: 10px 0; color: white; text-decoration: none; font-weight: 500;}
+    .banner {position: relative; width: 100%; height: 100vh; background: linear-gradient(to bottom right, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
+    .banner-content {z-index: 1; max-width: 800px;}
+    .banner-content h1 {font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00bfff, #1e90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+    .banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
+    .btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
+    .store-btn, .discord-btn {display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s;}
+    .store-btn {background: #00bfff; color: white;}
+    .store-btn:hover {background: #0099cc;}
+    .discord-btn {background: #5865F2; color: white;}
+    .discord-btn:hover {background: #4752c4;}
+    section {padding: 4rem 2rem; text-align: center;}
+    .section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
+    .ranks-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem;}
+    .rank {border-radius: 12px; padding: 1rem; width: 200px; background-color: #1f1f2e; transition: 0.3s;}
+    .rank img {width: 100%; border-radius: 10px; margin-bottom: 1rem;}
+    .rank h3 {font-size: 1.2rem; margin-bottom: 0.5rem;}
+    .rank:hover {transform: scale(1.05);}
+    .how-to-join {text-align: left; max-width: 900px; margin: 2rem auto; background: #1c1c29; border-radius: 10px; padding: 2rem;}
+    .how-to-join h2 {margin-bottom: 1rem; color: #00bfff;}
+    .how-to-join ol li {margin-bottom: 1rem; font-size: 1rem;}
+    .how-to-join ol li::before {content: '🎮 ';}
+    .faq {max-width: 800px; margin: 0 auto; text-align: left;}
+    .faq h3 {color: #00bfff; margin-top: 2rem; cursor: pointer; transition: 0.3s;}
+    .faq p {color: #ccc; margin-bottom: 1rem; display: none; animation: fadeIn 0.5s ease-in-out;}
+    @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
+    .footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
+    .footer a {color: #00bfff; text-decoration: none;}
+    @media (max-width: 768px) {
+      .hamburger {display: block;}
+      nav {display: none;}
+      .mobile-nav.show {display: flex;}
+      header {flex-direction: column; align-items: flex-start;}
+      .banner-content h1 {font-size: 2.5rem;}
+      .banner-content p {font-size: 1rem;}
+    }
   </style>
 </head>
 <body>
@@ -54,90 +59,71 @@ section {padding: 4rem 2rem; text-align: center;}
     <div class="logo">
       <img src="https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-05-16_16-10-32-479.jpg" alt="BlastMC Logo">
     </div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </div>
-    <nav id="nav-links">
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <nav>
       <a href="index.html">Home</a>
       <a href="status.html">Status</a>
       <a href="staff.html">Staff</a>
       <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
     </nav>
-  </header>  <div class="banner">
-    <div class="banner-content">
-      <h1>Welcome to BlastMC</h1>
-      <p>Experience high-quality Minecraft gameplay including Lifesteal, FFA, and more on our powerful Velocity network.</p>
-      <div class="btn-group">
-        <a href="https://store.blastmc.fun" class="store-btn">Visit Store</a>
-        <a href="https://discord.gg/blastmc" class="discord-btn" target="_blank">Join Discord</a>
-      </div>
+    <div class="mobile-nav" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="status.html">Status</a>
+      <a href="staff.html">Staff</a>
+      <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
     </div>
-  </div>  <section>
-    <h2 class="section-title">What is BlastMC?</h2>
-    <div class="features">
-      <div class="feature-box">
-        <i class="fas fa-user-friends"></i>
-        <h4>User-friendly</h4>
-        <p>Easy to join and fun to play for everyone!</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-sync-alt"></i>
-        <h4>Always Updated</h4>
-        <p>Support for the latest Minecraft versions.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-headset"></i>
-        <h4>Fast Support</h4>
-        <p>Need help? Our staff is always ready to assist.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-gem"></i>
-        <h4>Choose Your Ranks</h4>
-        <p>Upgrade in-game with ranks and perks.</p>
-      </div>
-    </div>
-  </section>  <section>
-    <h2 class="section-title">Explore Our Server</h2>
-    <p>BlastMC offers top-notch gameplay including Lifesteal, FFA, Lobby and more — all powered by Velocity!</p>
-  </section>  <section>
+  </header>  <section class="ranks" data-aos="fade-up">
     <h2 class="section-title">Ranks & Coins</h2>
-    <p>Get exclusive ranks, perks, and in-game coins from our <a href="https://store.blastmc.fun" target="_blank">official store</a>.</p>
-  </section>  <section>
-    <h2 class="section-title">How to Join BlastMC</h2>
-    <div class="steps">
-      <ol>
-        <li>Open Minecraft Java or Bedrock Edition</li>
-        <li>Click on Multiplayer or Servers tab</li>
-        <li>Add new server: IP - <strong>play.blastmc.fun</strong>, Port - <strong>19106</strong></li>
-        <li>Join and start your adventure!</li>
-      </ol>
+    <div class="ranks-container">
+      <div class="rank" style="border: 2px solid aqua;">
+        <img src="https://via.placeholder.com/200x100?text=Blaster" alt="Blaster">
+        <h3 style="color:aqua;">BLASTER</h3>
+      </div>
+      <div class="rank" style="border: 2px solid blue;">
+        <img src="https://via.placeholder.com/200x100?text=Deadliest" alt="Deadliest">
+        <h3 style="color:blue;">DEADLIEST</h3>
+      </div>
+      <div class="rank" style="border: 2px solid red;">
+        <img src="https://via.placeholder.com/200x100?text=Supreme" alt="Supreme">
+        <h3 style="color:red;">SUPREME</h3>
+      </div>
+      <div class="rank" style="border: 2px solid violet;">
+        <img src="https://via.placeholder.com/200x100?text=Godly" alt="Godly">
+        <h3 style="color:violet;">GODLY</h3>
+      </div>
+      <div class="rank" style="border: 2px solid yellow;">
+        <img src="https://via.placeholder.com/200x100?text=Elite" alt="Elite">
+        <h3 style="color:yellow;">ELITE</h3>
+      </div>
     </div>
-  </section>  <section>
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq">
-      <h3 onclick="toggleAnswer(this)">What is the server IP?</h3>
-      <p>The IP is <strong>play.blastmc.fun</strong> for both Java and Bedrock.</p><h3 onclick="toggleAnswer(this)">Which Minecraft versions are supported?</h3>
-  <p>We support versions 1.18 to latest for Java and Bedrock!</p>
-
-  <h3 onclick="toggleAnswer(this)">Is BlastMC free to play?</h3>
-  <p>Yes! You can join and play without spending anything.</p>
-
-  <h3 onclick="toggleAnswer(this)">Can I apply for staff?</h3>
-  <p>Yes! Join our <a href="https://discord.gg/blastmc" target="_blank">Discord server</a> to apply and view announcements.</p>
-
-  <h3 onclick="toggleAnswer(this)">Where can I purchase ranks?</h3>
-  <p>Visit our <a href="https://store.blastmc.fun" target="_blank">store</a> to purchase ranks and more!</p>
-</div>
-
+  </section>  <section class="how-to-join" data-aos="fade-up">
+    <h2>📥 How to Join BlastMC</h2>
+    <ol>
+      <li>Launch Minecraft Java or Bedrock Edition</li>
+      <li>Click on Multiplayer > Add Server</li>
+      <li>Server IP: <strong>play.blastmc.fun</strong></li>
+      <li>Port: <strong>19106</strong> (for Bedrock)</li>
+      <li>Join and Enjoy the Adventure!</li>
+    </ol>
+  </section>  <section class="faq" data-aos="fade-up">
+    <h2 class="section-title">❓ Frequently Asked Questions</h2>
+    <h3>What is BlastMC?</h3>
+    <p>BlastMC is a fun, friendly Minecraft network with Lifesteal, Minigames, FFA, and more. Perfect for all players!</p>
   </section>  <footer class="footer">
     &copy; 2025 BlastMC. All rights reserved. | Designed with 💙 for the Minecraft community.
-  </footer>  <script>
+  </footer>  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  <script>
+    AOS.init();
+
     function toggleMenu() {
-      document.getElementById('nav-links').classList.toggle('show');
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
     }
 
-    function toggleAnswer(el) {
-      el.classList.toggle('active');
-    }
+    document.querySelectorAll('.faq h3').forEach((question) => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
   </script></body>
 </html>
