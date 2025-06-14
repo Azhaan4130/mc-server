@@ -1,170 +1,26 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BlastMC - Home</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');:root {
-  --bg: #e9faff;
-  --text: #00334d;
-  --card-bg: rgba(255, 255, 255, 0.4);
-  --nav-bg: #00bfff;
-  --header-bg: linear-gradient(90deg, #00bfff, #66d9ff);
-  --shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+<header style="background: linear-gradient(90deg,#ff5722,#ff8a50); padding:20px; text-align:center;">
+  <img src="YOUR_LOGO_LINK" alt="BlastMC Logo" style="max-width:120px;">
+  <h1 style="font-family:Oswald,sans-serif;color:#fff;margin:10px 0;">BlastMC Network</h1>
+  <p style="color:#ffe6d5;">Java & Bedrock • Powered by Velocity</p>
+</header>
 
-body.dark {
-  --bg: #0d1117;
-  --text: #e6edf3;
-  --card-bg: rgba(22, 27, 34, 0.7);
-  --nav-bg: #161b22;
-  --header-bg: linear-gradient(90deg, #10151c, #1a1f27);
-  --shadow: 0 4px 12px rgba(255,255,255,0.05);
-}
+<section style="text-align:center; margin:30px 0;">
+  <div id="statusCard" style="display:inline-block;padding:20px 30px;
+       background:#fff3e0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+    <h2 id="serverStatus" style="color:#e65100;">Checking status...</h2>
+    <p style="font-family:monospace;">play.blastmc.fun : 19106</p>
+    <button onclick="copyIP()" style="background:#ff5722;color:#fff;border:none;padding:10px 20px;
+            border-radius:6px; cursor:pointer;">Copy IP</button>
+  </div>
+</section>
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition: background 0.3s, color 0.3s;
-}
-
-header {
-  background: var(--header-bg);
-  padding: 20px;
-  text-align: center;
-  color: white;
-  box-shadow: var(--shadow);
-}
-
-nav {
-  background: var(--nav-bg);
-  padding: 10px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: 'Press Start 2P', cursive;
-}
-
-.container {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.description {
-  font-size: 16px;
-  max-width: 700px;
-  margin: auto;
-  line-height: 1.6;
-}
-
-.status-box {
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: 12px;
-  background: var(--card-bg);
-  width: 280px;
-  box-shadow: var(--shadow);
-}
-
-.logo {
-  max-width: 150px;
-  border-radius: 16px;
-}
-
-.banner {
-  max-width: 90%;
-  margin: 20px auto;
-  border-radius: 20px;
-  display: block;
-  box-shadow: var(--shadow);
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-
-.copy-btn {
-  background: #00bfff;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #00bfff;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-  </style>
-</head>
-<body>
-  <header>
-    <img src="your-logo-link-here.png" class="logo" alt="BlastMC Logo">
-    <h1>Welcome to BlastMC</h1>
-    <p>Your ultimate Minecraft experience!</p>
-  </header>  <nav>
-    <a href="index.html">Home</a>
-    <a href="staff.html">Staff</a>
-    <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
-  </nav>  <div class="container">
-    <img src="your-banner-link-here.png" class="banner" alt="BlastMC Banner"><div class="description">
-  BlastMC is a cross-platform Minecraft server providing premium gameplay with Bedrock and Java support. With powerful performance through Velocity, you can expect smooth and lag-free multiplayer fun. Join now and experience Lifesteal, FFA, and more modes—soon expanding with epic updates!
-</div>
-
-<div class="status-box">
-  <h3>Server Status:</h3>
-  <div id="serverStatus">Checking...</div>
-  <p>IP: <strong>play.blastmc.fun</strong></p>
-  <p>Port (Bedrock): <strong>19106</strong></p>
-  <button class="copy-btn" onclick="copyIP()">Copy IP</button>
-</div>
-
-  </div>  <footer>&copy; 2025 BlastMC | Powered by the community</footer><button class="toggle-btn" onclick="toggleDarkMode()" id="modeBtn">Toggle Dark Mode</button>
-
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark");
-      const btn = document.getElementById("modeBtn");
-      btn.textContent = document.body.classList.contains("dark") ? "Toggle Light Mode" : "Toggle Dark Mode";
-    }
-
-    function copyIP() {
-      navigator.clipboard.writeText("play.blastmc.fun");
-      alert("IP copied to clipboard!");
-    }
-
-    async function checkStatus() {
-      try {
-        const res = await fetch("https://api.mcstatus.io/v2/status/java/play.blastmc.fun");
-        const data = await res.json();
-        const statusText = data.online ? `🟢 Online<br>${data.players.online} players` : "🔴 Offline";
-        document.getElementById("serverStatus").innerHTML = statusText;
-      } catch (err) {
-        document.getElementById("serverStatus").textContent = "Status check failed.";
-      }
-    }
-
-    checkStatus();
-  </script></body>
-</html>
+<script>
+  async function checkStatus() {
+    const res = await fetch('https://api.mcstatus.io/v2/status/java/play.blastmc.fun:19106');
+    const d = await res.json();
+    document.getElementById('serverStatus').innerHTML = d.online
+      ? `🟢 Online — ${d.players.online} online`
+      : '🔴 Offline';
+  }
+  checkStatus(); setInterval(checkStatus, 15000);
+</script>
