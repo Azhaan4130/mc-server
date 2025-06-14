@@ -8,34 +8,45 @@
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
     body {background-color: #0c0c0f; color: white; overflow-x: hidden;}
-    header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between;}
+    header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; position: relative;}
     .logo img {height: 60px;}
+    .hamburger {display: none; font-size: 1.8rem; color: white; cursor: pointer;}
+    nav {display: flex; align-items: center;}
     nav a {margin: 0 15px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s;}
-    nav a:hover {color: #00bfff;}
-    .banner {position: relative; width: 100%; height: 100vh; background: linear-gradient(to bottom right, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
-    .banner-content {z-index: 1; max-width: 800px;}
-    .banner-content h1 {font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00bfff, #1e90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
-    .banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
-    .btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
-    .store-btn, .discord-btn {display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s;}
-    .store-btn {background: #00bfff; color: white;}
-    .store-btn:hover {background: #0099cc;}
-    .discord-btn {background: #5865F2; color: white;}
-    .discord-btn:hover {background: #4752c4;}
-    section {padding: 4rem 2rem; text-align: center;}
-    .section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
-    .features {display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;}
-    .feature-box {background-color: #121219; padding: 2rem; border-radius: 12px; width: 250px; text-align: center; transition: 0.3s;}
-    .feature-box:hover {transform: translateY(-5px); box-shadow: 0 4px 15px rgba(0, 191, 255, 0.2);}
-    .feature-box i {font-size: 2rem; margin-bottom: 0.5rem; color: #00bfff;}
-    .feature-box p {color: #ccc; font-size: 1rem;}
-    .footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
-    .footer a {color: #00bfff; text-decoration: none;}
-    @media (max-width: 768px) {
-      header {flex-direction: column; gap: 1rem;}
-      .banner-content h1 {font-size: 2.5rem;}
-      .banner-content p {font-size: 1rem;}
-    }
+    nav a:hover {color: #00bfff;}@media (max-width: 768px) {
+  .hamburger {display: block;}
+  nav {display: none; flex-direction: column; background-color: #121219; width: 100%; position: absolute; top: 80px; left: 0; padding: 1rem; z-index: 999;}
+  nav a {margin: 10px 0; font-size: 1.2rem;}
+  nav.show {display: flex;}
+}
+
+.banner {position: relative; width: 100%; height: 100vh; background: linear-gradient(to bottom right, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
+.banner-content {z-index: 1; max-width: 800px;}
+.banner-content h1 {font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00bfff, #1e90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+.banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
+.btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
+.store-btn, .discord-btn {display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s;}
+.store-btn {background: #00bfff; color: white;}
+.store-btn:hover {background: #0099cc;}
+.discord-btn {background: #5865F2; color: white;}
+.discord-btn:hover {background: #4752c4;}
+section {padding: 4rem 2rem; text-align: center;}
+.section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
+.faq {max-width: 800px; margin: 0 auto; text-align: left; background-color: #1c1c25; padding: 2rem; border-radius: 10px;}
+.faq h3 {color: #00bfff; margin-top: 2rem; cursor: pointer;}
+.faq p {color: #ccc; margin-bottom: 1rem; display: none;}
+.faq h3.active + p {display: block;}
+.steps {max-width: 900px; margin: 2rem auto; text-align: left; background: url('https://i.imgur.com/xl7A5Pf.jpeg'); background-size: cover; background-position: center; padding: 2rem; border-radius: 10px;}
+.steps ol {list-style: decimal inside; padding-left: 1rem;}
+.steps li {margin-bottom: 1rem; color: white;}
+.footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
+.footer a {color: #00bfff; text-decoration: none;}
+.features {display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 3rem;}
+.feature-box {background: #1c1c25; padding: 1.5rem; border-radius: 12px; width: 220px; text-align: center;}
+.feature-box i {font-size: 2rem; color: #00bfff; margin-bottom: 1rem;}
+.feature-box h4 {margin-bottom: 0.5rem; color: #00bfff;}
+.feature-box p {color: #ccc;}
+
   </style>
 </head>
 <body>
@@ -43,7 +54,10 @@
     <div class="logo">
       <img src="https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-05-16_16-10-32-479.jpg" alt="BlastMC Logo">
     </div>
-    <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="nav-links">
       <a href="index.html">Home</a>
       <a href="status.html">Status</a>
       <a href="staff.html">Staff</a>
@@ -62,24 +76,68 @@
     <h2 class="section-title">What is BlastMC?</h2>
     <div class="features">
       <div class="feature-box">
-        <i class="fa-solid fa-users"></i>
-        <p>User-friendly gameplay and smooth experience for all players.</p>
+        <i class="fas fa-user-friends"></i>
+        <h4>User-friendly</h4>
+        <p>Easy to join and fun to play for everyone!</p>
       </div>
       <div class="feature-box">
-        <i class="fa-solid fa-wrench"></i>
-        <p>Always updated with the latest Minecraft features and fixes.</p>
+        <i class="fas fa-sync-alt"></i>
+        <h4>Always Updated</h4>
+        <p>Support for the latest Minecraft versions.</p>
       </div>
       <div class="feature-box">
-        <i class="fa-solid fa-headset"></i>
-        <p>Fast support from our active and helpful staff team.</p>
+        <i class="fas fa-headset"></i>
+        <h4>Fast Support</h4>
+        <p>Need help? Our staff is always ready to assist.</p>
       </div>
       <div class="feature-box">
-        <i class="fa-solid fa-star"></i>
-        <p>Choose your ranks and stand out in the server!</p>
+        <i class="fas fa-gem"></i>
+        <h4>Choose Your Ranks</h4>
+        <p>Upgrade in-game with ranks and perks.</p>
       </div>
     </div>
-  </section>  <!-- Remaining sections stay unchanged -->  <footer class="footer">
+  </section>  <section>
+    <h2 class="section-title">Explore Our Server</h2>
+    <p>BlastMC offers top-notch gameplay including Lifesteal, FFA, Lobby and more — all powered by Velocity!</p>
+  </section>  <section>
+    <h2 class="section-title">Ranks & Coins</h2>
+    <p>Get exclusive ranks, perks, and in-game coins from our <a href="https://store.blastmc.fun" target="_blank">official store</a>.</p>
+  </section>  <section>
+    <h2 class="section-title">How to Join BlastMC</h2>
+    <div class="steps">
+      <ol>
+        <li>Open Minecraft Java or Bedrock Edition</li>
+        <li>Click on Multiplayer or Servers tab</li>
+        <li>Add new server: IP - <strong>play.blastmc.fun</strong>, Port - <strong>19106</strong></li>
+        <li>Join and start your adventure!</li>
+      </ol>
+    </div>
+  </section>  <section>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">What is the server IP?</h3>
+      <p>The IP is <strong>play.blastmc.fun</strong> for both Java and Bedrock.</p><h3 onclick="toggleAnswer(this)">Which Minecraft versions are supported?</h3>
+  <p>We support versions 1.18 to latest for Java and Bedrock!</p>
+
+  <h3 onclick="toggleAnswer(this)">Is BlastMC free to play?</h3>
+  <p>Yes! You can join and play without spending anything.</p>
+
+  <h3 onclick="toggleAnswer(this)">Can I apply for staff?</h3>
+  <p>Yes! Join our <a href="https://discord.gg/blastmc" target="_blank">Discord server</a> to apply and view announcements.</p>
+
+  <h3 onclick="toggleAnswer(this)">Where can I purchase ranks?</h3>
+  <p>Visit our <a href="https://store.blastmc.fun" target="_blank">store</a> to purchase ranks and more!</p>
+</div>
+
+  </section>  <footer class="footer">
     &copy; 2025 BlastMC. All rights reserved. | Designed with 💙 for the Minecraft community.
-  </footer>
-</body>
+  </footer>  <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('show');
+    }
+
+    function toggleAnswer(el) {
+      el.classList.toggle('active');
+    }
+  </script></body>
 </html>
