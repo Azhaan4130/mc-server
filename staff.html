@@ -2,26 +2,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BlastMC | Staff</title>
+  <title>BlastMC | Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
-    body {background-color: #0c0c0f; color: white;}
-    header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between;}
+    body {background-color: #0c0c0f; color: white; overflow-x: hidden;}
+    header {background-color: #121219; padding: 1.5rem 3rem; display: flex; align-items: center; justify-content: space-between; position: relative;}
     .logo img {height: 60px;}
+    nav {display: flex; align-items: center;}
     nav a {margin: 0 15px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s;}
-    nav a:hover {color: #00bfff;}.container {padding: 4rem 2rem; max-width: 1200px; margin: auto; text-align: center;}
-.section-title {font-size: 2.5rem; margin-bottom: 2rem; color: #00bfff;}
-.staff-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;}
-.staff-card {background: #121219; border-radius: 12px; padding: 1.5rem; transition: 0.3s; box-shadow: 0 0 10px rgba(0,0,0,0.4);}
-.staff-card:hover {transform: translateY(-5px); background-color: #1c1c2b;}
-.staff-card img {width: 100px; height: auto; display: block; margin: 0 auto 1rem;}
-.staff-card h3 {margin: 0.5rem 0 0.3rem; font-size: 1.2rem; color: #00bfff;}
-.staff-card p {margin: 0; color: #ccc;}
-footer {text-align: center; padding: 2rem; background: #121219; margin-top: 3rem; color: #999; font-size: 0.9rem;}
-
+    nav a:hover {color: #00bfff;}
+    .hamburger {display: none; font-size: 1.5rem; cursor: pointer; color: white;}
+    .mobile-nav {display: none; flex-direction: column; background-color: #121219; position: absolute; top: 100%; left: 0; width: 100%; padding: 1rem; z-index: 10;}
+    .mobile-nav a {margin: 10px 0; color: white; text-decoration: none; font-weight: 500;}
+    .banner {position: relative; width: 100%; height: 100vh; background: linear-gradient(to bottom right, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;}
+    .banner-content {z-index: 1; max-width: 800px;}
+    .banner-content h1 {font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #00bfff, #1e90ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+    .banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
+    .btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
+    .store-btn, .discord-btn {display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s;}
+    .store-btn {background: #00bfff; color: white;}
+    .store-btn:hover {background: #0099cc;}
+    .discord-btn {background: #5865F2; color: white;}
+    .discord-btn:hover {background: #4752c4;}
+    section {padding: 4rem 2rem; text-align: center;}
+    .section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
+    .faq {max-width: 800px; margin: 0 auto; text-align: left;}
+    .faq h3 {color: #00bfff; margin-top: 2rem; cursor: pointer;}
+    .faq p {color: #ccc; margin-bottom: 1rem; display: none;}
+    .steps {max-width: 900px; margin: 2rem auto; text-align: left;}
+    .steps ol {list-style: decimal inside; padding-left: 1rem;}
+    .steps li {margin-bottom: 1rem;}
+    .features {background-color: #111; padding: 3rem 1rem;}
+    .features h2 {color: #00bfff; margin-bottom: 2rem; text-align: center;}
+    .features-list {display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;}
+    .feature-item {background: #1a1a2e; padding: 1.5rem; border-radius: 10px; text-align: center; box-shadow: 0 0 10px rgba(0,191,255,0.1);}
+    .feature-item i {font-size: 2rem; color: #00bfff; margin-bottom: 1rem;}
+    .footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
+    .footer a {color: #00bfff; text-decoration: none;}
+    @media (max-width: 768px) {
+      .hamburger {display: block;}
+      nav {display: none;}
+      .mobile-nav.show {display: flex;}
+      header {flex-direction: column; align-items: flex-start;}
+      .banner-content h1 {font-size: 2.5rem;}
+      .banner-content p {font-size: 1rem;}
+    }
   </style>
 </head>
 <body>
@@ -29,59 +57,67 @@ footer {text-align: center; padding: 2rem; background: #121219; margin-top: 3rem
     <div class="logo">
       <img src="https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-05-16_16-10-32-479.jpg" alt="BlastMC Logo">
     </div>
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     <nav>
       <a href="index.html">Home</a>
       <a href="status.html">Status</a>
       <a href="staff.html">Staff</a>
       <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
     </nav>
-  </header>  <div class="container">
-    <h1 class="section-title" data-aos="fade-down">Meet Our Staff</h1>
-    <div class="staff-grid">
-      <div class="staff-card" data-aos="fade-up">
-        <img src="https://visage.surgeplay.com/full/Azhaan_Gamerz.png" alt="Azhaan">
-        <h3>Azhaan_Gamerz</h3>
-        <p>Owner</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://visage.surgeplay.com/full/RIPxBEAST.png" alt="RIPxBEAST">
-        <h3>RIPxBEAST</h3>
-        <p>Owner</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://visage.surgeplay.com/full/EVExREXY.png" alt="EVExREXY">
-        <h3>EVExREXY</h3>
-        <p>CEO / Founder</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://visage.surgeplay.com/full/Akhi_hero.png" alt="Akhi_hero">
-        <h3>Akhi_hero</h3>
-        <p>Admin</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="400">
-        <img src="https://visage.surgeplay.com/full/Sufianishero.png" alt="Sufianishero">
-        <h3>Sufianishero</h3>
-        <p>Admin</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="500">
-        <img src="https://visage.surgeplay.com/full/UdiyanSinha.png" alt="UdiyanSinha">
-        <h3>UdiyanSinha</h3>
-        <p>Moderator</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="600">
-        <img src="https://visage.surgeplay.com/full/Pikachu.png" alt="Pikachu">
-        <h3>Pikachu</h3>
-        <p>Moderator</p>
-      </div>
-      <div class="staff-card" data-aos="fade-up" data-aos-delay="700">
-        <img src="https://visage.surgeplay.com/full/Madhav.png" alt="Madhav">
-        <h3>Madhav</h3>
-        <p>Owner</p>
+    <div class="mobile-nav" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="status.html">Status</a>
+      <a href="staff.html">Staff</a>
+      <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
+    </div>
+  </header>  <section class="banner">
+    <div class="banner-content">
+      <h1>Welcome to BlastMC</h1>
+      <p>Your ultimate Minecraft adventure begins here!</p>
+      <div class="btn-group">
+        <a href="#store" class="store-btn">Visit Store</a>
+        <a href="https://discord.gg/blastmc" class="discord-btn" target="_blank">Join Discord</a>
       </div>
     </div>
-  </div>  <footer>
-    &copy; 2025 BlastMC. All rights reserved. | Staff Showcase
+  </section>  <section class="features">
+    <h2>Why Choose BlastMC?</h2>
+    <div class="features-list">
+      <div class="feature-item">
+        <i class="fas fa-cube"></i>
+        <h3>What is BlastMC?</h3>
+        <p>A fun and exciting Minecraft server with custom modes and an amazing community.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-users"></i>
+        <h3>User-Friendly</h3>
+        <p>Simple to join and play, no complicated setup needed!</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-sync-alt"></i>
+        <h3>Always Updated</h3>
+        <p>Frequent updates ensure new content and a stable server experience.</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-headset"></i>
+        <h3>Fast Support</h3>
+        <p>Our friendly staff team is always ready to help you!</p>
+      </div>
+    </div>
+  </section>  <footer class="footer">
+    &copy; 2025 BlastMC. All rights reserved. | Designed with 💙 for the Minecraft community.
   </footer>  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  <script>
-    AOS.init({ duration: 1000 });
+    AOS.init();
+
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('show');
+    }
+
+    document.querySelectorAll('.faq h3').forEach((question) => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
   </script></body>
 </html>
