@@ -7,134 +7,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background-color: #0c0c0f;
-      color: white;
-      overflow-x: hidden;
-    }
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+    body {background-color: #0c0c0f; color: white; overflow-x: hidden;}
     header {
-      background-color: #121219;
-      padding: 1.5rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      background-color: #121219; padding: 1.5rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; position: relative;
     }
-    .logo img {
-      height: 60px;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-    }
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #00bfff;
-    }
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: white;
-    }
+    .logo img {height: 60px;}
+    nav {display: flex; align-items: center;}
+    nav a {margin: 0 15px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s;}
+    nav a:hover {color: #00bfff;}
+    .hamburger {display: none; font-size: 1.5rem; cursor: pointer; color: white;}
     .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background-color: #121219;
-      width: 100%;
-      padding: 1rem;
+      display: none; flex-direction: column; background-color: #121219;
+      position: absolute; top: 100%; left: 0; width: 100%; padding: 1rem; z-index: 10;
     }
-    .mobile-nav.show {
-      display: flex;
+    .mobile-nav a {margin: 10px 0; color: white; text-decoration: none; font-weight: 500;}
+    .banner {
+      width: 100%; height: 100vh; background: url('https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-06-02_22-50-10-761.jpg') no-repeat center center/cover;
+      display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;
     }
-    .mobile-nav a {
-      margin: 10px 0;
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
+    .banner-content {
+      background-color: rgba(0,0,0,0.6); padding: 2rem; border-radius: 12px; backdrop-filter: blur(4px);
     }
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-      nav {
-        display: none;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #00bfff;
-}
-.glow-box {
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
-  padding: 1.5rem;
-  border-radius: 10px;
-  margin: 1rem 0;
-}
-.feature-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #00bfff;
-}
-.faq-question {
-  cursor: pointer;
-  background: #1c1c25;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 8px;
-  position: relative;
-  transition: background 0.3s ease;
-}
-.faq-answer {
-  display: none;
-  padding: 1rem;
-  background: #121219;
-  border-radius: 0 0 8px 8px;
-}
-.faq-question::after {
-  content: "\25BC";
-  position: absolute;
-  right: 1rem;
-  top: 1.2rem;
-  transition: transform 0.3s;
-}
-.faq-question.open::after {
-  transform: rotate(180deg);
-}
-.join-section {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: url('https://raw.githubusercontent.com/Azhaan4130/mc-server/refs/heads/main/Picsart_25-06-02_22-50-10-761.jpg') no-repeat center center/cover;
-  color: white;
-}
-.join-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-.join-step {
-  background: rgba(0,0,0,0.6);
-  padding: 1rem;
-  margin: 1rem auto;
-  border-radius: 10px;
-  max-width: 600px;
-  font-size: 1.1rem;
+    .banner-content h1 {
+      font-size: 4rem; margin-bottom: 1rem;
+      background: linear-gradient(90deg, #00bfff, #1e90ff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .banner-content p {font-size: 1.3rem; color: #ccc; margin-bottom: 2rem;}
+    .btn-group {display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;}
+    .store-btn, .discord-btn {
+      display: inline-block; padding: 0.8rem 1.5rem; border-radius: 8px;
+      font-weight: bold; text-decoration: none; transition: 0.3s;
+    }
+    .store-btn {background: #00bfff; color: white;}
+    .store-btn:hover {background: #0099cc;}
+    .discord-btn {background: #5865F2; color: white;}
+    .discord-btn:hover {background: #4752c4;}
+    section {padding: 4rem 2rem; text-align: center;}
+    .section-title {font-size: 2.5rem; margin-bottom: 1rem; color: #00bfff;}
+    .footer {background-color: #121219; text-align: center; padding: 2rem; font-size: 0.9rem;}
+    .footer a {color: #00bfff; text-decoration: none;}@media (max-width: 768px) {
+  .hamburger {display: block; order: 2;}
+  nav {display: none;}
+  .mobile-nav.show {display: flex;}
+  header {flex-direction: column; align-items: flex-start;}
+  .banner-content h1 {font-size: 2.5rem;}
+  .banner-content p {font-size: 1rem;}
 }
 
   </style>
@@ -157,65 +78,24 @@
       <a href="staff.html">Staff</a>
       <a href="https://discord.gg/blastmc" target="_blank">Discord</a>
     </div>
-  </header>  <section>
-    <h2 class="section-title">What is BlastMC?</h2>
-    <div class="glow-box" data-aos="fade-up">
-      BlastMC is a fun, custom Minecraft server where players can enjoy Lifesteal, FFA, Minigames and more with a friendly community and smooth experience.
-    </div><div class="glow-box" data-aos="fade-up">
-  <div class="feature-icon">👥</div>
-  <h3>User Friendly</h3>
-  <p>Our UI and gameplay are designed to be intuitive for everyone.</p>
-</div>
-<div class="glow-box" data-aos="fade-up">
-  <div class="feature-icon">⚙️</div>
-  <h3>Always Updated</h3>
-  <p>We bring you new features and bug fixes regularly to enhance your gameplay.</p>
-</div>
-<div class="glow-box" data-aos="fade-up">
-  <div class="feature-icon">🚀</div>
-  <h3>Fast Support</h3>
-  <p>Have issues? We respond quickly through Discord or in-game staff.</p>
-</div>
-
-  </section>  <section class="join-section">
-    <h2>How to Join BlastMC</h2>
-    <div class="join-step">🔢 Step 1: Open Minecraft → Multiplayer → Add Server</div>
-    <div class="join-step">🌐 Step 2: Enter Server Address: <strong>play.blastmc.fun</strong> then click Done</div>
-    <div class="join-step">🎮 Step 3: You're in! Enjoy your adventure on BlastMC!</div>
-  </section>  <section>
-    <h2 class="section-title">FAQ</h2>
-    <div class="faq-question">What is the server IP?</div>
-    <div class="faq-answer">The IP is <strong>play.blastmc.fun</strong>.</div><div class="faq-question">Which Minecraft versions are supported?</div>
-<div class="faq-answer">We support all versions from 1.8 to latest.</div>
-
-<div class="faq-question">Do you have a Discord server?</div>
-<div class="faq-answer">Yes! Join us at <a href="https://discord.gg/blastmc">discord.gg/blastmc</a>.</div>
-
-<div class="faq-question">Is BlastMC free to play?</div>
-<div class="faq-answer">Yes, it’s completely free to play!</div>
-
-<div class="faq-question">Can I apply for staff?</div>
-<div class="faq-answer">Yes, check our Discord for applications.</div>
-
-<div class="faq-question">Where can I purchase ranks?</div>
-<div class="faq-answer">Visit our store to check all rank options and perks.</div>
-
-  </section>  <footer class="footer">
-    &copy; 2025 BlastMC. All rights reserved. | Join us on <a href="https://discord.gg/blastmc">Discord</a> & <a href="https://youtube.com">YouTube</a>
+  </header>  <section class="banner">
+    <div class="banner-content">
+      <h1>Welcome to BlastMC</h1>
+      <p>Experience the ultimate Minecraft adventure with amazing ranks, perks, and coins!</p>
+      <div class="btn-group">
+        <a href="#ranks" class="store-btn">Ranks</a>
+        <a href="https://discord.gg/blastmc" class="discord-btn">Join Discord</a>
+      </div>
+    </div>
+  </section>  <!-- More sections like Ranks, Coins, How to Join, FAQ, etc. go here -->  <footer class="footer">
+    &copy; 2025 BlastMC. All rights reserved. | Designed with 💙 for the Minecraft community.
+    <br>
+    <a href="https://discord.gg/blastmc">Discord</a> | <a href="https://www.youtube.com/@AzhaanGamerz">YouTube</a>
   </footer>  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  <script>
     AOS.init();
-
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('show');
     }
-
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => {
-        q.classList.toggle('open');
-        const answer = q.nextElementSibling;
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-      });
-    });
   </script></body>
 </html>
